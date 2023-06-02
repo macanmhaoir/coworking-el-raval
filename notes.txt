@@ -1,0 +1,6 @@
+
+To upload the web use...
+npm run deploy
+
+Blue color used is #97C0E8
+R 151 G 192 B 232

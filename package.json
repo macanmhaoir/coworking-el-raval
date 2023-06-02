@@ -1,0 +1,23 @@
+{
+  "name": "coworking-la-platja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonny-weir/coworking-la-platja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonny-weir/coworking-la-platja/issues"
+  },
+  "homepage": "https://coworking-la-platja.com",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}
