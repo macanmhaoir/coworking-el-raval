@@ -43,6 +43,7 @@
 
 		if (isAuthenticated) {
 			document.getElementById("logout").style.display = "block"; //added
+			document.getElementById("login").style.display = "none"; //added
 			profileElement.style.display = "block";
 			profileElement.innerHTML = `
             <p>${userProfile.name}</p>
@@ -50,6 +51,8 @@
           `;
 		} else {
 			profileElement.style.display = "none";
+			document.getElementById("login").style.display = "block"; //added
+			document.getElementById("logout").style.display = "none"; //added
 		}
 	});
 
