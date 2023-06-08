@@ -42,6 +42,13 @@
 		const profileElement = document.getElementById("profile");
 
 		if (isAuthenticated) {
+			document.getElementById("secret-content").classList.remove("hidden")
+			document.getElementById(
+				"ipt-access-token"
+			).innerHTML = await auth0.getTokenSilently()
+			document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
+				await auth0.getUser()
+			)
 			document.getElementById("logout").style.display = "block"; //added
 			document.getElementById("login").style.display = "none"; //added
 			profileElement.style.display = "block";
@@ -50,6 +57,7 @@
             <img src="${userProfile.picture}" />
           `;
 		} else {
+			document.getElementById("secret-content").classList.add("hidden")
 			profileElement.style.display = "none";
 			document.getElementById("login").style.display = "block"; //added
 			document.getElementById("logout").style.display = "none"; //added
