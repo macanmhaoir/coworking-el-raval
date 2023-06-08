@@ -18,6 +18,8 @@
 			auth0Client.loginWithRedirect();
 		});
 
+		document.getElementById("logout").style.display = "none"; //added
+	
 		if (location.search.includes("state=") &&
 			(location.search.includes("code=") ||
 				location.search.includes("error="))) {
@@ -40,6 +42,7 @@
 		const profileElement = document.getElementById("profile");
 
 		if (isAuthenticated) {
+			document.getElementById("logout").style.display = "block"; //added
 			profileElement.style.display = "block";
 			profileElement.innerHTML = `
             <p>${userProfile.name}</p>
