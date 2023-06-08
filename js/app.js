@@ -8,7 +8,7 @@ window.onload = async () => {
 
 const configureClient = async () => {
     auth0 = await createAuth0Client({
-        domain: "oworking-el-raval.eu.auth0.com",
+        domain: "coworking-el-raval.eu.auth0.com",
         client_id: "RIvMvuajgBdGr0HADp2PWq9xZuTGZO12",
     })
 }
