@@ -30,6 +30,7 @@ const updateUI = async () => {
     document.getElementById("btn-login").disabled = isAuthenticated
     // NEW - add logic to show/hide gated content after authentication
     if (isAuthenticated) {
+        console.log('isAuthenticated' + isAuthenticated)
         document.getElementById("gated-content").classList.remove("hidden")
         document.getElementById(
             "ipt-access-token"

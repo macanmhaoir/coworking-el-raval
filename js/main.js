@@ -42,7 +42,6 @@
 		const profileElement = document.getElementById("profile");
 
 		if (isAuthenticated) {
-			document.getElementById("secret-content").classList.remove("hidden")
 			document.getElementById(
 				"ipt-access-token"
 			).innerHTML = await auth0.getTokenSilently()
@@ -57,7 +56,6 @@
             <img src="${userProfile.picture}" />
           `;
 		} else {
-			document.getElementById("secret-content").classList.add("hidden")
 			profileElement.style.display = "none";
 			document.getElementById("login").style.display = "block"; //added
 			document.getElementById("logout").style.display = "none"; //added

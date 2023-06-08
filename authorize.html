@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="icon" href="favicon.png">
+   	   	<!-- Bootstrap  -->
+					   	<link rel="stylesheet" href="css/bootstrap.css">
+					   	<!-- Style -->
+					   	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <h2>SPA Authentication Sample</h2>
     <p>Welcome to our page!</p>
-    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
-    <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+    <button id="btn-login" disabled="disabled" onclick="login()">Log in</button>
+    <button id="btn-logout" disabled="disabled" onclick="logout()">Log out</button>
 
-  <div class="hidden" id="gated-content">
+  <div class='hidden' id="gated-content">
       <p>
         You're seeing this content because you're currently
         <strong>logged in</strong>.
