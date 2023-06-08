@@ -5,6 +5,11 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 					   <head>
+
+
+					   	<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+
+
 					   	<!-- Google Tag Manager -->
 					   	<script>
 				(function (w, d, s, l, i) {
@@ -148,7 +153,8 @@
 					   							<!--<li><a href="#" data-nav-section="explore"><span>Activities</span></a></li>
 							<li><a href="#" data-nav-section="testimony"><span>What they say</span></a></li>-->
 					   							<li><a href="#" data-nav-section="pricing"><span>Pricing</span></a></li>
-					   							<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".login-register-form">Login</button></li>
+					   							<!--<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".login-register-form">Login</button></li>-->
+					   							<li><button id="login" type="button" class="btn btn-default btn-sm" click="loginWithRedirect()">Login</button></li>
 					   						</ul>
 					   					</div>
 					   				</nav>
