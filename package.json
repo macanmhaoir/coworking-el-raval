@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sonny-weir/coworking-la-platja.git"
+    "url": "git+https://github.com/kevhaes/coworking_El_Raval.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sonny-weir/coworking-la-platja/issues"
+    "url": "https://github.com/kevhaes/coworking_El_Raval/issues"
   },
   "homepage": "https://coworking-la-platja.com",
   "dependencies": {
