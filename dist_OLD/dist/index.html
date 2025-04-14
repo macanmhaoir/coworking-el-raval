@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+					   <head>
+
+
+					   	<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+
+
+					   	<!-- Google Tag Manager -->
+					   	<script>
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || []; w[l].push({
+						'gtm.start':
+							new Date().getTime(), event: 'gtm.js'
+					}); var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+							'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+				})(window, document, 'script', 'dataLayer', 'GTM-TQRW46N');</script>
+					   	<!-- End Google Tag Manager -->
+					   	<meta charset="utf-8">
+					   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					   	<title>Coworking el Raval</title> <!-- If this title shows then web is the one hosted at namecheap.com-->
+					   	<meta name="viewport" content="width=device-width, initial-scale=1">
+					   	<meta name="description" content="coworking El Raval website" />
+					   	<meta name="keywords" content="coworking, raval, airco, flexible, meetings, temporary, price " />
+					   	<meta name="author" content="raval" />
+
+					   	<!--
+
+	<!-- Facebook and Twitter integration -->
+					   	<meta property="og:title" content="" />
+					   	<meta property="og:image" content="" />
+					   	<meta property="og:url" content="" />
+					   	<meta property="og:site_name" content="" />
+					   	<meta property="og:description" content="" />
+					   	<meta name="twitter:title" content="" />
+					   	<meta name="twitter:image" content="" />
+					   	<meta name="twitter:url" content="" />
+					   	<meta name="twitter:card" content="" />
+
+					   	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+					   	<link rel="shortcut icon" href="fa-solid fa-house">
+
+					   	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
+
+					   	<!-- Animate.css -->
+					   	<link rel="stylesheet" href="css/animate.css">
+					   	<!-- Icomoon Icon Fonts-->
+					   	<link rel="stylesheet" href="css/icomoon.css">
+					   	<!-- Simple Line Icons -->
+					   	<link rel="stylesheet" href="css/simple-line-icons.css">
+					   	<!-- Bootstrap  -->
+					   	<link rel="stylesheet" href="css/bootstrap.css">
+					   	<!-- Style -->
+					   	<link rel="stylesheet" href="css/style.css">
+
+					   	<!-- Modernizr JS -->
+					   	<script src="js/modernizr-2.6.2.min.js"></script>
+					   	<!-- FOR IE9 below -->
+					   	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+
+					   </head>
+					   <body>
+					   	<!-- Google Tag Manager (noscript) -->
+					   	<noscript>
+					   		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQRW46N"
+						height="0" width="0" style="display:none;visibility:hidden"></iframe>
+					   	</noscript>
+					   	<!-- End Google Tag Manager (noscript) -->
+		
+
+					   	<header role="banner" id="fh5co-header">
+
+					   		<div class="container">
+					   			<div class="row">
+					   				<nav class="navbar navbar-default navbar-fixed-top">
+
+					   					<div class="navbar-header">
+					   						<!-- Mobile Toggle Menu Button -->
+					   						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+					   						<a class="navbar-brand" href="index.html">Coworking_El_Raval</a>
+					   					</div>
+					   					<div id="navbar" class="navbar-collapse collapse">
+					   						<ul class="nav navbar-nav navbar-right">
+					   							<li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+					   							<li><a href="#" data-nav-section="services"><span>We offer you</span></a></li>
+					   							<!--<li><a href="#" data-nav-section="explore"><span>Activities</span></a></li>
+							<li><a href="#" data-nav-section="testimony"><span>What they say</span></a></li>-->
+					   							<li><a href="#" data-nav-section="pricing"><span>Pricing</span></a></li>
+					   							<!--<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".login-register-form">Login</button></li>-->
+					   							<li><button id="login" type="button" class="btn btn-default btn-sm" click="loginWithRedirect()">Login</button></li>
+					   							<li><button id="logout" type="button" class="btn btn-default btn-sm">Logout</button></li>
+
+					   							<li id="profile"></li>
+					   						</ul>
+					   					</div>
+					   				</nav>
+					   			</div>
+					   		</div>
+					   	</header>
+
+
+					   	<section id="fh5co-home" data-section="home" style="background-image: url('images/work-area_13.jpg'); background-position: 0px -350px;" data-stellar-background-ratio="0.5">
+					   		<div class="gradient"></div>
+					   		<div class="container">
+					   			<div class="text-wrap">
+					   				<div class="text-inner">
+					   					<div class="row">
+					   						<div class="col-md-8 col-md-offset-2 text-center">
+					   							<h1 class="animate-box "><span class="medium ">We're opening in Raval</span><span class="medium">!</span></h1>
+					   							<h2 class="animate-box">Welcome to Raval's brand new coworking space</h2>
+					   							<div class="call-to-action">
+					   								<a href="https://wa.me/34622475591?text=HeIlo," target="_blank" class="demo animate-box"><i class="fa-solid fa-euro-sign"></i> Prices</a>
+					   								<a href="https://wa.me/34622475591?text=HelIo," target="_blank" class="download animate-box"><i class="icon-whatsapp"></i> Whatsapp Us</a>
+					   								<!--<a href="#" data-nav-section="pricing" class="download animate-box"><i class="icon-whatsapp"></i> Contact</a>-->
+					   							</div>
+					   						</div>
+					   					</div>
+					   				</div>
+					   			</div>
+					   		</div>
+					   	</section>
+					   	<br />
+					   	<setion class="#fh5co-counters">
+					   		<div class="container">
+
+					   			<div class="flexbin flexbin-margin">
+					   				<a href="images/work-area_13.jpg" target="_blank">
+					   					<img src="images/work-area_13.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_9.jpg" target="_blank">
+					   					<img src="images/work-area_9.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_14.jpg" target="_blank">
+					   					<img src="images/work-area_14.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_15.jpg" target="_blank">
+					   					<img src="images/work-area_15.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_16.jpg" target="_blank">
+					   					<img src="images/work-area_16.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_20.jpg" target="_blank">
+					   					<img src="images/work-area_20.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_27.jpg" target="_blank">
+					   					<img src="images/work-area_27.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_38.jpg" target="_blank">
+					   					<img src="images/work-area_38.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_31.jpg" target="_blank">
+					   					<img src="images/work-area_31.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_32.jpg" target="_blank">
+					   					<img src="images/work-area_32.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_33.jpg" target="_blank">
+					   					<img src="images/work-area_33.jpg" class="zoom" />
+					   				</a>
+					   				<a href="images/work-area_34.jpg" target="_blank">
+					   					<img src="images/work-area_34.jpg" class="zoom" />
+					   				</a>
+
+
+					   				<!--<a href="images/work-area_1.jpg" target="_blank">
+					<img src="images/work-area_2.jpg" class="zoom" />
+				</a>
+				<a href="images/work-area_2.jpg" target="_blank">
+					<img src="images/work-area_2.jpg" class="zoom" />
+				</a>
+				<a href="images/work-area_3.jpg" target="_blank">
+					<img src="images/work-area_1.jpg" class="zoom" />
+				</a>-->
+					   			</div>
+					   		</div>
+					   	</setion>
+					   	<br />
+					   	<section id="fh5co-services" data-section="services">
+					   		<div class="fh5co-services">
+					   			<div class="container">
+
+					   				<div class="row">
+					   					<div class="col-md-4 text-center">
+					   						<div class="box-services">
+					   							<div class="icon animate-box">
+					   								<span><i class="fa-solid  fa-fan"></i></span>
+					   							</div>
+					   							<div class="fh5co-post animate-box">
+														<h3>Air conditioning</h3>
+														<p>Our air conditioning is so good, it'll make you forget that summer even exists.</p>
+					   							</div>
+					   						</div>
+
+					   						<div class="box-services">
+					   							<div class="icon animate-box">
+					   								<span><i class="fa-solid fa-shower"></i></span>
+					   							</div>
+					   							<div class="fh5co-post animate-box">
+														<h3>Shower</h3>
+														<p>You can come dirty to the office. Or have a workout during the day.</p>
+					   							</div>
+					   						</div>
+					   					</div>
+					   					<div class="col-md-4 text-center">
+												<div class="box-services">
+													<div class="icon animate-box">
+														<span><i class="fa-solid fa-umbrella-beach"></i></span>
+													</div>
+													<div class="fh5co-post animate-box">
+														<h3>Sunny Terrace</h3>
+														<p>Take your sunglasses to work and join discussions like what is the best sunscreen brand...</p>
+													</div>
+												</div>
+
+												<div class="box-services">
+													<div class="icon animate-box">
+														<span><i class="fa-sharp fa-regular fa-clock"></i></span>
+													</div>
+													<div class="fh5co-post animate-box">
+														<h3>Easy Access</h3>
+														<p>We'll set you up with a code or key-fob to enter and leave as you please</p>
+													</div>
+												</div>
+					   					</div>
+					   					<div class="col-md-4 text-center">
+					   						<div class="box-services">
+					   							<div class="icon animate-box">
+					   								<span><i class="fa-solid fa-coffee"></i></span>
+					   							</div>
+					   							<div class="fh5co-post animate-box">
+					   								<h3>Freshly ground, tasty coffee</h3>
+					   								<p>Good coffee is a hug in a mug.</p>
+					   							</div>
+					   						</div>
+
+					   						<div class="box-services">
+					   							<div class="icon animate-box">
+					   								<span><i class="fa-solid fa-wheelchair-move"></i></span>
+					   							</div>
+					   							<div class="fh5co-post animate-box">
+					   								<h3>Wheelchair friendly</h3>
+					   								<p>Ground floor has no steps.</p>
+					   							</div>
+					   						</div>
+					   					</div>
+
+
+
+
+
+					   				</div>
+
+					   			</div>
+
+					   		</div>
+					   	</section>
+
+					   	<!--<section id="fh5co-explore" data-section="explore">
+	 <div class="container">
+		 <div class="row">
+			 <div class="col-md-12 section-heading text-center">
+				 <h2 class="animate-box">Our Activities</h2>
+				 <div class="row">
+					 <div class="col-md-8 col-md-offset-2 subtext animate-box">
+						 <h3>We regulary organize activities to combine work and pleasure and getting to know our coworkers.</h3>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+	 <div class="fh5co-project">
+		 <div class="container">
+			 <div class="row">
+				 <div class="col-md-4">
+					 <div class="fh5co-portfolio animate-box">
+						 <a href="#">
+							 <div class="portfolio-entry" style="background-image: url(images/activity_lunch.JPG); ">
+								 <div class="desc">
+									 <p>Once a month, we all head out for a fun lunch. It's always a good time, and we get to hang out and chat outside of work.</p>
+								 </div>
+							 </div>
+							 <div class="portfolio-text text-center">
+								 <h3>Monthly Lunches</h3>
+								 <ul class="stuff">-->
+					   	<!--<li><i class="icon-heart2"></i>200</li>
+	<li><i class="icon-eye2"></i>248</li>
+	<li><i class="icon-download"></i>240</li>-->
+					   	<!--</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/activity_run.jpg);">
+					<div class="desc">
+						<p>All levels welcome. It's not about running like crazy but about having a good time together, getting some fresh air, and exercise. These lunch runs are a great way to break up the workday and boost our mood.</p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Weekly Lunch Runs</h3>
+					<ul class="stuff">-->
+					   	<!--<li><i class="icon-heart2"></i>200</li>
+	<li><i class="icon-eye2"></i>248</li>
+	<li><i class="icon-download"></i>240</li>-->
+					   	<!--</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/activity_swim.jpg);">
+					<div class="desc">
+						<p>Since we are next to the sea, we make it a weekly habit to go for a refreshing swim. Whether you're a seasoned swimmer or just starting out, join in on the fun!  </p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Weekly Sea Swims</h3>
+					<ul class="stuff">-->
+					   	<!--<li><i class="icon-heart2"></i>200</li>
+	<li><i class="icon-eye2"></i>248</li>
+	<li><i class="icon-download"></i>240</li>-->
+					   	<!--</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">-->
+					   	<!--<div class="fh5co-portfolio animate-box">
+	<a href="#">
+		<div class="portfolio-entry" style="background-image: url(images/portfolio-4.jpg);">
+			<div class="desc">
+				<p>We are always open for new activities.</p>
+			</div>
+		</div>
+		<div class="portfolio-text text-center">
+			<h3>Your Proposal ?</h3>
+			<ul class="stuff">-->
+					   	<!--<li><i class="icon-heart2"></i>200</li>
+	<li><i class="icon-eye2"></i>248</li>
+	<li><i class="icon-download"></i>240</li>-->
+					   	<!--</ul>
+			</div>
+		</a>
+	</div>-->
+					   	<!--</div>
+	<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/portfolio-5.jpg);">
+					<div class="desc">
+						<p>We are always open for new activities, new ideas.</p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Your Proposal ?</h3>
+					<ul class="stuff">-->
+					   	<!--<li><i class="icon-heart2"></i>200</li>
+	<li><i class="icon-eye2"></i>248</li>
+	<li><i class="icon-download"></i>240</li>-->
+					   	<!--</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">-->
+					   	<!--<div class="fh5co-portfolio animate-box">
+		<a href="#">
+			<div class="portfolio-entry" style="background-image: url(images/portfolio-6.jpg);">
+				<div class="desc">
+					<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				</div>
+			</div>
+			<div class="portfolio-text text-center">
+				<h3>Words</h3>
+				<ul class="stuff">
+					<li><i class="icon-heart2"></i>200</li>
+					<li><i class="icon-eye2"></i>248</li>
+					<li><i class="icon-download"></i>240</li>
+				</ul>
+			</div>
+		</a>
+	</div>-->
+					   	<!--</div>-->
+					   	<!--<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/portfolio-7.jpg);">
+					<div class="desc">
+						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Soon</h3>
+					<ul class="stuff">
+						<li><i class="icon-heart2"></i>200</li>
+						<li><i class="icon-eye2"></i>248</li>
+						<li><i class="icon-download"></i>240</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/portfolio-8.jpg);">
+					<div class="desc">
+						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Homestate</h3>
+					<ul class="stuff">
+						<li><i class="icon-heart2"></i>200</li>
+						<li><i class="icon-eye2"></i>248</li>
+						<li><i class="icon-download"></i>240</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fh5co-portfolio animate-box">
+			<a href="#">
+				<div class="portfolio-entry" style="background-image: url(images/portfolio-9.jpg);">
+					<div class="desc">
+						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="portfolio-text text-center">
+					<h3>Words</h3>
+					<ul class="stuff">
+						<li><i class="icon-heart2"></i>200</li>
+						<li><i class="icon-eye2"></i>248</li>
+						<li><i class="icon-download"></i>240</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+	</div>-->
+					   	<!--</div>
+		</div>
+	</div>-->
+					   	<!--<div id="fh5co-counter-section" class="fh5co-counters">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-6 col-md-offset-3 animate-box">
+
+				</div>
+			</div>
+			<div class="row animate-box">
+
+			</div>
+		</div>
+	</div>-->
+					   	<!--</section>-->
+					   	<!--<section id="fh5co-testimony" data-section="testimony">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center">
+					<h2 class="animate-box"><span>Our Happy Clients</span></h2>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 subtext animate-box">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>Great place with friendly admosphere. The shower and the location makes place unique and very inviting to go for a quick swim, run, beach break during your hard working day</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_kevin.png); "></div>
+						<span class="user">Kevin Haesendonck <br> <small>Programmer</small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>
+								Lovely little co-working with loads of light, nice people, free coffee and fast wifi. Relaxed and calm place (we translators need to concentrate!) with a meeting room if you need a quiet area for calls. Super close to the beach so you can run, swim or play beach volley (and shower in the office after) or have a drink after work. Well equipped kitchen with a big fridge to warm up some lunch but also lots of food places nearby, even vegan.
+								I've been working from here for nearly 10 months now and it made a big change, I get a lot more done and am glad to have "colleagues" again to chat or go for lunch with after 3 years of working from home.
+							</p>
+						</div>
+						<div class="author-img" style="background-image: url(images//member_britta.png);"></div>
+						<span class="user">Britta Willmes <br> <small>Translator</small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>Fantastic work space! It has everything it needs: a cosy yet spacious work space, good WiFi (tested in a lengthy zoom call!), an equipped kitchen and clean facilities! The cherry on top: a great location, just two minutes from the beach where you can take a walk during your break!</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_melis.png);"></div>
+						<span class="user">Melis Günay<br> <small></small></span>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>I love it! It has the right size, not too big, nor too small, and offers active people like myself to go for a run and shower afterwards. The vibe fosters productivity and the coffee and Wi-Fi are great as well. Highly recommended!</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_yohay.png);"></div>
+						<span class="user">Yohay Elam <br> <small>Financial Analyst, Entrepreneur</small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>Great little cowork space - brand new facilities, super clean and fresh. Plenty of space, and love that it's on the ground floor so easy access and sea breezes when the door is open! Great owner and friendly people around too.</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_sarah.png);"></div>
+						<span class="user">Sarah Smelik <br> <small></small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>It is a very pleasant, quiet and bright space. Very good atmosphere, in a very central but quiet area next to Bogatell beach. So it is perfect for combining work with sport, air and sea water.</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_ines.png);"></div>
+						<span class="user">Inês de Lemos <br> <small></small></span>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>I started working here a few months ago, everything was great, the atmosphere is very good and calm, the place is very cozy and the location is incredible.</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_josep.png);"></div>
+						<span class="user">Josep Estudis<br> <small></small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>Increíble co-working en Barcelona. Ambiente muy agradable y luminoso. Muy buena ubicación, a ras de una calle no muy transitada, lo cual asegura una vista despejada y hacia fuera con un máximo de tranquilidad. Las instalaciones son más que suficiente para trabajar cómodamente. Recomiendo 100%</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_hajer.png);"></div>
+						<span class="user">Hajer ROUACHED <br> <small></small></span>
+					</div>
+
+					<div class="testimony-entry animate-box">
+						<div class="feed-bubble">
+							<p>Great place in an unbeatable location. The host is very friendly and welcoming.</p>
+						</div>
+						<div class="author-img" style="background-image: url(images/member_xavi.png);"></div>
+						<span class="user">Xavi Longan <br> <small></small></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>-->
+
+					   	<section id="fh5co-pricing" data-section="pricing">
+					   		<section class="pricing-section bg-3">
+					   			<div class="container">
+					   				<div class="row">
+					   					<div class="col-md-12 section-heading text-center">
+					   						<h2 class="animate-box">Pricing</h2>
+					   						<div class="row">
+					   							<div class="col-md-8 col-md-offset-2 subtext animate-box">
+					   								<h3>For prices you can contact us (see below).</h3>
+					   							</div>
+					   						</div>
+					   					</div>
+					   				</div>
+					   				<!--<div class="row">
+				<div class="col-md-4 text-center animate-box">
+					<div class="pricing__item">
+						<h3 class="pricing__title">Startup</h3>
+						<div class="pricing__price"><span class="pricing_currency">$</span>9.90</div>
+						<p class="pricing__sentence">Small business solution</p>
+						<ul class="pricing__feature-list">
+							<li class="pricing__feature">Unlimited calls</li>
+							<li class="pricing__feature">Free hosting</li>
+							<li class="pricing__feature">40MB of storage space</li>
+						</ul>
+						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
+					</div>
+				</div>
+				<div class="col-md-4 text-center animate-box">
+					<div class="pricing__item">
+						<h3 class="pricing__title">Medium</h3>
+						<div class="pricing__price"><span class="pricing_currency">$</span>29,90</div>
+						<p class="pricing__sentence">Medium business solution</p>
+						<ul class="pricing__feature-list">
+							<li class="pricing__feature">Unlimited calls</li>
+							<li class="pricing__feature">Free hosting</li>
+							<li class="pricing__feature">10 hours of support</li>
+							<li class="pricing__feature">Social media integration</li>
+							<li class="pricing__feature">1GB of storage space</li>
+						</ul>
+						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
+					</div>
+				</div>-->
+					   				<!--<div class="col-md-4 text-center animate-box">
+					<div class="pricing__item">
+						<h3 class="pricing__title">Large</h3>
+						<div class="pricing__price"><span class="pricing_currency">$</span>59,90</div>
+						<p class="pricing__sentence">Gigantic business solution</p>
+						<ul class="pricing__feature-list">
+							<li class="pricing__feature">Unlimited calls</li>
+							<li class="pricing__feature">Free hosting</li>
+							<li class="pricing__feature">Unlimited hours of support</li>
+							<li class="pricing__feature">Social media integration</li>
+							<li class="pricing__feature">Anaylitcs integration</li>
+							<li class="pricing__feature">Unlimited storage space</li>
+						</ul>
+						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
+					</div>
+				</div>-->
+					   			</div>
+					   		</section>
+					   	</section>
+
+					   	<!--<section id="fh5co-blog" data-section="blog">
+		<div class="fh5co-blog">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 section-heading text-center">
+						<h2 class="animate-box"><span>Read Our Blog</span></h2>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 subtext">
+								<h3 class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-1.jpg);">
+								<div class="date">
+									<span>03</span>
+									<small>Mar</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-2.jpg);">
+								<div class="date">
+									<span>01</span>
+									<small>Mar</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-3.jpg);">
+								<div class="date">
+									<span>28</span>
+									<small>Feb</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-3.jpg);">
+								<div class="date">
+									<span>28</span>
+									<small>Feb</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-1.jpg);">
+								<div class="date">
+									<span>27</span>
+									<small>Feb</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 animate-box blog">
+						<a href="#" class="entry">
+							<div class="blog-bg" style="background-image: url(images/blog-2.jpg);">
+								<div class="date">
+									<span>25</span>
+									<small>Feb</small>
+								</div>
+								<div class="desc">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="desc-grid">
+								<h3>Download Free HTML5 Template</h3>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>-->
+
+
+					   	<div id="fh5co-footer" role="contentinfo">
+					   		<div class="container">
+					   			<div class="row">
+					   				<div class="col-md-4 animate-box">
+					   					<h3 class="section-title">Interested?</h3>
+					   					<p>If you would like to see the office simply message, phone, or mail us and we can arrange a time.</p>
+
+					   				</div>
+
+					   				<div class="col-md-4 animate-box">
+					   					<h3 class="section-title">Our Address</h3>
+					   					<ul class="contact-info">
+					   						<li><i class="icon-map"></i><a href="http://maps.google.com/?q=C/ de la Lluna, 11, 08001 Barcelona" target="_blank">C/ de la Lluna, 11, 08001 Barcelona</li></a>
+					   						<li><i class="icon-phone"></i>+34 622 47 55 91</li>
+					   						<li><i class="icon-envelope"></i>info@coworking-el-raval.com</li>
+					   						<li><i class="icon-globe"><a href="www.coworking-el-raval.com" target="_blank"></i>www.coworking-el-raval.com</li></a>
+					   					</ul>
+					   					<h3 class="section-title">Connect with Us</h3>
+					   					<ul class="social-media">
+					   						<li><a href="https://wa.me/34622475591?text=HeIIo," target="_blank" class="facebook"><i class="icon-whatsapp"></i></a></li>
+					   						<li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
+					   						<li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
+					   						<li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+					   					</ul>
+					   				</div>
+					   				<div class="col-md-4 animate-box ">
+					   					<h3 class="section-title">Here we are:</h3>
+					   					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.675092494768!2d2.1633605764975163!3d41.38114327130069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f560f02efb%3A0x2876063194e3cd67!2sC%2F%20de%20la%20Lluna%2C%2011%2C%2008001%20Barcelona!5e0!3m2!1sen!2ses!4v1685741454097!5m2!1sen!2ses" width=100% height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					   					<!--<form class="contact-form">
+						<div class="form-group">
+							<label for="name" class="sr-only">Name</label>
+							<input type="name" class="form-control" id="name" placeholder="Name">
+						</div>
+						<div class="form-group">
+							<label for="email" class="sr-only">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="message" class="sr-only">Message</label>
+							<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Send Message">
+						</div>
+					</form>-->
+					   				</div>
+					   			</div>
+					   			<div class="row">
+					   				<div class="col-md-12">
+					   					<!--<p class="copy-right">
+						&copy; 2015 Solid Free Template. All Rights Reserved. <br>
+						Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a>
+						Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a>
+					</p>-->
+					   				</div>
+					   			</div>
+					   		</div>
+					   	</div>
+
+
+					   	<!-- jQuery -->
+					   	<script src="js/jquery.min.js"></script>
+					   	<!-- jQuery Easing -->
+					   	<script src="js/jquery.easing.1.3.js"></script>
+					   	<!-- Bootstrap -->
+					   	<script src="js/bootstrap.min.js"></script>
+					   	<!-- Waypoints -->
+					   	<script src="js/jquery.waypoints.min.js"></script>
+					   	<!-- Stellar Parallax -->
+					   	<script src="js/jquery.stellar.min.js"></script>
+					   	<!-- Counters -->
+					   	<script src="js/jquery.countTo.js"></script>
+					   	<!-- Main JS (Do not remove) -->
+					   	<script src="js/main.js"></script>
+
+					   	<!--fontawsome-->
+					   	<script src="https://kit.fontawesome.com/7b9e9c3d29.js" crossorigin="anonymous"></script>
+
+					   </body>
+</html>
+
