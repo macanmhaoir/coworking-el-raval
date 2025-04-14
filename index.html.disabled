@@ -1,826 +1,1821 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-					   <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coworking El Raval - Barcelona's Creative Workspace</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #d7938f;
+            --secondary: #2e4057;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --accent: #38b2ac;
+        }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e85a2a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+	.hero {
+            height: 100vh;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/work-area_13.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(0.5); /* This dramatically darkens the image */
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            padding: 30px 20px;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .pricing-features {
+            padding: 30px 20px;
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .pricing-footer {
+            padding: 0 20px 30px;
+        }
+        
+        /* Popular plan highlight */
+        .pricing-card.popular {
+            transform: scale(1.05);
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .pricing-card.popular .pricing-header {
+            background-color: var(--primary);
+        }
+
+        /* Special offer badge */
+        .special-offer-badge {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background-color: #ff5722;
+            color: white;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+        
+        .pricing-card:hover .hover-badge {
+            opacity: 1 !important;
+        }
+        
+        .special-offer-badge.blue {
+            background-color: #2e4057;
+        }
+        
+        .special-offer-badge.salmon {
+            background-color: #d7938f;
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+        
+        .testimonial-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            color: #f0f0f0;
+            font-family: Georgia, serif;
+            z-index: 0;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            color: #777;
+            margin: 0;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-nav button {
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            color: var(--secondary);
+            cursor: pointer;
+            padding: 0 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .testimonial-nav button:hover {
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3,
+        .footer-newsletter h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after,
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 991px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column-reverse;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 60%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .testimonial-content {
+                padding: 20px;
+            }
+        }
+        
+        /* IMPROVED LIGHTBOX STYLES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Navigation areas - wider clickable areas */
+        .nav-area {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 30%;
+            cursor: pointer;
+            z-index: 1105;
+            display: flex;
+            align-items: center;
+        }
+
+        .prev-area {
+            left: 0;
+            justify-content: flex-start;
+        }
+
+        .next-area {
+            right: 0;
+            justify-content: flex-end;
+        }
+
+        /* Navigation buttons */
+        .nav-btn {
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 50%;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: all 0.3s ease;
+            z-index: 1110;
+            background-color: rgba(0, 0, 0, 0.2);
+            pointer-events: none; /* This makes sure clicks go through to the parent .nav-area */
+        }
+
+        .prev-btn {
+            margin-left: 20px;
+        }
+
+        .next-btn {
+            margin-right: 20px;
+        }
+
+        .nav-area:hover .nav-btn {
+            background-color: rgba(215, 147, 143, 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Larger close button area */
+        .close-area {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1120;
+        }
+
+        .close-lightbox {
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .close-area:hover .close-lightbox {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Animation for lightbox image */
+        @keyframes zoom {
+            from {transform: translate(-50%, -50%) scale(0.9)}
+            to {transform: translate(-50%, -50%) scale(1)}
+        }
+
+        .lightbox-content {
+            animation-name: zoom;
+            animation-duration: 0.4s;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .nav-btn {
+                font-size: 25px;
+                padding: 10px;
+            }
+            
+            .prev-btn {
+                margin-left: 10px;
+            }
+            
+            .next-btn {
+                margin-right: 10px;
+            }
+            
+            .close-area {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .close-lightbox {
+                font-size: 30px;
+            }
+        }
+        
+        .price-tag:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Contact Styles */
+        /* Contact Section Styles */
+        .contact {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        /* Info Cards */
+        .info-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-left: 5px solid #d7938f;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(215, 147, 143, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
+            z-index: 0;
+        }
+        
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(215, 147, 143, 0.2);
+            border: 1px solid rgba(215, 147, 143, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .info-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .info-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2e4057;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-content p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* Prominent WhatsApp Section */
+        .whatsapp-container {
+            margin-bottom: 40px;
+        }
+        
+        .whatsapp-card {
+            background-color: #25D366;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .whatsapp-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .whatsapp-content {
+            flex: 1;
+        }
+        
+        .whatsapp-content h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .whatsapp-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            background-color: white;
+            color: #25D366;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+        
+        /* Contact Details */
+        .contact-details {
+            margin-bottom: 40px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .detail-icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(215, 147, 143, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .detail-item p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: #333;
+        }
+        
+        .detail-item strong {
+            color: #2e4057;
+            font-weight: 600;
+        }
+        
+        /* Social Links */
+        .social-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .social-container h3 {
+            margin-bottom: 20px;
+            color: #2e4057;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #d7938f;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: #2e4057;
+        }
+        
+        /* Map Container */
+        .map-container {
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 991px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                order: -1; /* Move map above contact info on mobile */
+                margin-bottom: 30px;
+                height: 400px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .info-card {
+                padding: 20px;
+            }
+            
+            .info-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            
+            .whatsapp-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .whatsapp-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .info-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Coworking <span>El Raval</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">We offer you</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>A workspace in the City Centre</h1>
+                <p>A calm work environment in Barcelona's cultural quarter. Functional spaces with everything you need in the authentic atmosphere of El Raval.</p>
+                <div id="offer-banner" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; opacity: 0; transition: opacity 0.5s ease-in-out; cursor: pointer;" onclick="this.style.opacity = '0'; setTimeout(() => { this.style.display = 'none'; }, 500);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 600px; width: 90%; background-color: rgba(215, 147, 143, 0.95); padding: 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 2px solid white; cursor: default;" onclick="event.stopPropagation();">
+                        <!-- Content -->
+                        <div style="text-align: center;">
+			    <h3 style="color: white; font-size: 2.2rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Limited Time Offer!</h3>
+			    <p style="color: white; font-size: 1.4rem; margin-bottom: 15px;">Join now and enjoy our special prices for your first 6 months:</p>
+			    
+			    <div style="display: flex; justify-content: center; margin-top: 15px; gap: 30px; flex-wrap: wrap;">
+                    <a href="https://buy.stripe.com/3csg2ZaiW8rV5fW4gA" style="background-color: rgba(0,0,0,0.15); padding: 15px 25px; border-radius: 5px; text-decoration: none; cursor: pointer; transition: transform 0.3s ease, background-color 0.3s ease;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.backgroundColor='rgba(0,0,0,0.25)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.backgroundColor='rgba(0,0,0,0.15)'; this.style.transform='translateY(0)';" onclick="event.stopPropagation();">
+                        <span style="font-weight: 700; color: white; font-size: 1.8rem;">Flex Desk: €120</span>
+                        <span style="text-decoration: line-through; margin-left: 8px; color: rgba(255,255,255,0.7); font-size: 1.3rem;">€185</span>
+                    </a>
+
+                    <a href="https://wa.me/34622475591?text=Hi%2C%20I%27m%20interested%20in%20the%20Fixed%20Desk%20option%20%28%E2%82%AC150%2Fmonth%20for%20first%206%20months%29.%20I%20would%20like%20to%20get%20started.%20My%20name%20is%20" style="background-color: rgba(0,0,0,0.15); padding: 15px 25px; border-radius: 5px; text-decoration: none; cursor: pointer; transition: transform 0.3s ease, background-color 0.3s ease;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.backgroundColor='rgba(0,0,0,0.25)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.backgroundColor='rgba(0,0,0,0.15)'; this.style.transform='translateY(0)';" onclick="event.stopPropagation();">
+                        <span style="font-weight: 700; color: white; font-size: 1.8rem;">Fixed Desk: €150</span>
+                        <span style="text-decoration: line-through; margin-left: 8px; color: rgba(255,255,255,0.7); font-size: 1.3rem;">€220</span>
+                    </a>
+                </div>
+			    <p style="color: white; font-size: 1rem; margin-top: 15px;">All prices without VAT</p>
+			</div>                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn">See Pricing</a>
+                    <a href="#contact" class="btn">Book a Tour</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-					   	<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>We offer you</h2>
+            </div>
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: center;">
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg fill="#ffffff" width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M352.57 128c-28.09 0-54.09 4.52-77.06 12.86l12.41-123.11C289 7.31 279.81-1.18 269.33.13 189.63 10.13 128 77.64 128 159.43c0 28.09 4.52 54.09 12.86 77.06L17.75 224.08C7.31 223-1.18 232.19.13 242.67c10 79.7 77.51 141.33 159.3 141.33 28.09 0 54.09-4.52 77.06-12.86l-12.41 123.11c-1.05 10.43 8.11 18.93 18.59 17.62 79.7-10 141.33-77.51 141.33-159.3 0-28.09-4.52-54.09-12.86-77.06l123.11 12.41c10.44 1.05 18.93-8.11 17.62-18.59-10-79.7-77.51-141.33-159.3-141.33zM256 288a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"></path></g></svg>
+                    </div>
+                    <h3>Air conditioning</h3>
+                    <p>Our air conditioning is so good, it'll make you forget that summer even exists.</p>
+                </div>
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.36407 6.364C9.87878 2.84929 15.5773 2.84929 19.092 6.364L12.728 12.728M6.36407 6.364C2.84935 9.87872 2.84935 15.5772 6.36407 19.0919L12.728 12.728M6.36407 6.364C6.36407 6.364 12.0417 6.38489 15.5564 9.89961M6.36407 6.364C6.36407 6.364 6.38483 12.0417 9.89955 15.5565M12.728 12.728L20 20.0001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </div>
+                    <h3>Sunny Terrace</h3>
+                    <p>Take your sunglasses to work and join discussions like what is the best sunscreen brand...</p>
+                </div>
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9C3 8.06812 3 7.60218 3.15224 7.23463C3.35523 6.74458 3.74458 6.35523 4.23463 6.15224C4.60218 6 5.06812 6 6 6H10H14C14.9319 6 15.3978 6 15.7654 6.15224C16.2554 6.35523 16.6448 6.74458 16.8478 7.23463C17 7.60218 17 8.06812 17 9V9V15.6667C17 20 16.15 21 10 21C3.84999 21 3 20 3 15.6667V9V9Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path> <path d="M17 9H19C20.1046 9 21 9.89543 21 11V14C21 15.1046 20.1046 16 19 16H17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                    </div>
+                    <h3>Freshly ground, tasty coffee</h3>
+                    <p>Good coffee is a hug in a mug.</p>
+                </div>
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg fill="#ffffff" width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M304,320a16,16,0,1,0,16,16A16,16,0,0,0,304,320Zm32-96a16,16,0,1,0,16,16A16,16,0,0,0,336,224Zm32,64a16,16,0,1,0-16-16A16,16,0,0,0,368,288Zm-32,32a16,16,0,1,0-16-16A16,16,0,0,0,336,320Zm-32-64a16,16,0,1,0,16,16A16,16,0,0,0,304,256Zm128-32a16,16,0,1,0-16-16A16,16,0,0,0,432,224Zm-48,16a16,16,0,1,0,16-16A16,16,0,0,0,384,240Zm-16-48a16,16,0,1,0,16,16A16,16,0,0,0,368,192Zm96,32a16,16,0,1,0,16,16A16,16,0,0,0,464,224Zm32-32a16,16,0,1,0,16,16A16,16,0,0,0,496,192Zm-64,64a16,16,0,1,0,16,16A16,16,0,0,0,432,256Zm-32,32a16,16,0,1,0,16,16A16,16,0,0,0,400,288Zm-64,64a16,16,0,1,0,16,16A16,16,0,0,0,336,352Zm-32,32a16,16,0,1,0,16,16A16,16,0,0,0,304,384Zm64-64a16,16,0,1,0,16,16A16,16,0,0,0,368,320Zm21.65-218.35-11.3-11.31a16,16,0,0,0-22.63,0L350.05,96A111.19,111.19,0,0,0,272,64c-19.24,0-37.08,5.3-52.9,13.85l-10-10A121.72,121.72,0,0,0,123.44,32C55.49,31.5,0,92.91,0,160.85V464a16,16,0,0,0,16,16H48a16,16,0,0,0,16-16V158.4c0-30.15,21-58.2,51-61.93a58.38,58.38,0,0,1,48.93,16.67l10,10C165.3,138.92,160,156.76,160,176a111.23,111.23,0,0,0,32,78.05l-5.66,5.67a16,16,0,0,0,0,22.62l11.3,11.31a16,16,0,0,0,22.63,0L389.65,124.28A16,16,0,0,0,389.65,101.65Z"></path></g></svg>
+                    </div>
+                    <h3>Shower</h3>
+                    <p>You can come dirty to the office. Or have a workout during the day.</p>
+                </div>
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                    </div>
+                    <h3>Easy Access</h3>
+                    <p>We'll set you up with a code or key-fob to enter and leave as you please.</p>
+                </div>
+                <div class="feature-item">
+                    <div style="width: 120px; height: 120px; background-color: #d7938f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+<svg width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.1 3.001A1.9 1.9 0 1 1 17.001 4.9a1.9 1.9 0 0 1-1.9-1.899zM14.8 17.5a5.3 5.3 0 1 1-5.3-5.3 5.3 5.3 0 0 1 5.3 5.3zm-1.8 0A3.5 3.5 0 1 0 9.5 21a3.504 3.504 0 0 0 3.5-3.5zm6.418-4.493l-5.231-.006A6.52 6.52 0 0 1 15.5 15h2.538l-1.497 5.093a1 1 0 1 0 1.918.564l1.875-6.375a1.001 1.001 0 0 0 .041-.282.987.987 0 0 0-.957-.993zM6.82 9.975a.802.802 0 0 0 .667-.356L9.5 6.599h3.19l-2.213 4.474a6.489 6.489 0 0 1 3.636 1.852l2.375-4.751a1.526 1.526 0 0 0-.64-2.027L13.48 5H8.644L6.157 8.731a.791.791 0 0 0-.135.443.8.8 0 0 0 .799.8z"></path><path fill="none" d="M0 0h24v24H0z"></path></g></svg>           </div>
+                    <h3>Wheelchair friendly</h3>
+                    <p>Ground floor has no steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-					   	<!-- Google Tag Manager -->
-					   	<script>
-				(function (w, d, s, l, i) {
-					w[l] = w[l] || []; w[l].push({
-						'gtm.start':
-							new Date().getTime(), event: 'gtm.js'
-					}); var f = d.getElementsByTagName(s)[0],
-						j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-							'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-				})(window, document, 'script', 'dataLayer', 'GTM-TQRW46N');</script>
-					   	<!-- End Google Tag Manager -->
-					   	<meta charset="utf-8">
-					   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-					   	<title>Coworking el Raval</title> <!-- If this title shows then web is the one hosted at namecheap.com-->
-					   	<meta name="viewport" content="width=device-width, initial-scale=1">
-					   	<meta name="description" content="coworking El Raval website" />
-					   	<meta name="keywords" content="coworking, raval, airco, flexible, meetings, temporary, price " />
-					   	<meta name="author" content="raval" />
-
-					   	<!--
-
-	<!-- Facebook and Twitter integration -->
-					   	<meta property="og:title" content="" />
-					   	<meta property="og:image" content="" />
-					   	<meta property="og:url" content="" />
-					   	<meta property="og:site_name" content="" />
-					   	<meta property="og:description" content="" />
-					   	<meta name="twitter:title" content="" />
-					   	<meta name="twitter:image" content="" />
-					   	<meta name="twitter:url" content="" />
-					   	<meta name="twitter:card" content="" />
-
-					   	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-					   	<link rel="shortcut icon" href="fa-solid fa-house">
-
-					   	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
-
-					   	<!-- Animate.css -->
-					   	<link rel="stylesheet" href="css/animate.css">
-					   	<!-- Icomoon Icon Fonts-->
-					   	<link rel="stylesheet" href="css/icomoon.css">
-					   	<!-- Simple Line Icons -->
-					   	<link rel="stylesheet" href="css/simple-line-icons.css">
-					   	<!-- Bootstrap  -->
-					   	<link rel="stylesheet" href="css/bootstrap.css">
-					   	<!-- Style -->
-					   	<link rel="stylesheet" href="css/style.css">
-
-					   	<!-- Modernizr JS -->
-					   	<script src="js/modernizr-2.6.2.min.js"></script>
-					   	<!-- FOR IE9 below -->
-					   	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
-
-
-					   </head>
-					   <body>
-					   	<!-- Google Tag Manager (noscript) -->
-					   	<noscript>
-					   		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQRW46N"
-						height="0" width="0" style="display:none;visibility:hidden"></iframe>
-					   	</noscript>
-					   	<!-- End Google Tag Manager (noscript) -->
-		
-
-					   	<header role="banner" id="fh5co-header">
-
-					   		<div class="container">
-					   			<div class="row">
-					   				<nav class="navbar navbar-default navbar-fixed-top">
-
-					   					<div class="navbar-header">
-					   						<!-- Mobile Toggle Menu Button -->
-					   						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-					   						<a class="navbar-brand" href="index.html">Coworking_El_Raval</a>
-					   					</div>
-					   					<div id="navbar" class="navbar-collapse collapse">
-					   						<ul class="nav navbar-nav navbar-right">
-					   							<li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
-					   							<li><a href="#" data-nav-section="services"><span>We offer you</span></a></li>
-					   							<!--<li><a href="#" data-nav-section="explore"><span>Activities</span></a></li>
-							<li><a href="#" data-nav-section="testimony"><span>What they say</span></a></li>-->
-					   							<li><a href="#" data-nav-section="pricing"><span>Pricing</span></a></li>
-					   							<!--<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".login-register-form">Login</button></li>-->
-					   							<li><button id="login" type="button" class="btn btn-default btn-sm" click="loginWithRedirect()">Login</button></li>
-					   							<li><button id="logout" type="button" class="btn btn-default btn-sm">Logout</button></li>
-
-					   							<li id="profile"></li>
-					   						</ul>
-					   					</div>
-					   				</nav>
-					   			</div>
-					   		</div>
-					   	</header>
-
-
-					   	<section id="fh5co-home" data-section="home" style="background-image: url('images/work-area_13.jpg'); background-position: 0px -350px;" data-stellar-background-ratio="0.5">
-					   		<div class="gradient"></div>
-					   		<div class="container">
-					   			<div class="text-wrap">
-					   				<div class="text-inner">
-					   					<div class="row">
-					   						<div class="col-md-8 col-md-offset-2 text-center">
-					   							<h1 class="animate-box "><span class="medium ">We're opening in Raval</span><span class="medium">!</span></h1>
-					   							<h2 class="animate-box">Welcome to Raval's brand new coworking space</h2>
-					   							<div class="call-to-action">
-					   								<a href="https://wa.me/34622475591?text=HeIlo," target="_blank" class="demo animate-box"><i class="fa-solid fa-euro-sign"></i> Prices</a>
-					   								<a href="https://wa.me/34622475591?text=HelIo," target="_blank" class="download animate-box"><i class="icon-whatsapp"></i> Whatsapp Us</a>
-					   								<!--<a href="#" data-nav-section="pricing" class="download animate-box"><i class="icon-whatsapp"></i> Contact</a>-->
-					   							</div>
-					   						</div>
-					   					</div>
-					   				</div>
-					   			</div>
-					   		</div>
-					   	</section>
-					   	<br />
-					   	<setion class="#fh5co-counters">
-					   		<div class="container">
-
-					   			<div class="flexbin flexbin-margin">
-					   				<a href="images/work-area_13.jpg" target="_blank">
-					   					<img src="images/work-area_13.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_9.jpg" target="_blank">
-					   					<img src="images/work-area_9.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_14.jpg" target="_blank">
-					   					<img src="images/work-area_14.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_15.jpg" target="_blank">
-					   					<img src="images/work-area_15.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_16.jpg" target="_blank">
-					   					<img src="images/work-area_16.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_20.jpg" target="_blank">
-					   					<img src="images/work-area_20.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_27.jpg" target="_blank">
-					   					<img src="images/work-area_27.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_38.jpg" target="_blank">
-					   					<img src="images/work-area_38.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_31.jpg" target="_blank">
-					   					<img src="images/work-area_31.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_32.jpg" target="_blank">
-					   					<img src="images/work-area_32.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_33.jpg" target="_blank">
-					   					<img src="images/work-area_33.jpg" class="zoom" />
-					   				</a>
-					   				<a href="images/work-area_34.jpg" target="_blank">
-					   					<img src="images/work-area_34.jpg" class="zoom" />
-					   				</a>
-
-
-					   				<!--<a href="images/work-area_1.jpg" target="_blank">
-					<img src="images/work-area_2.jpg" class="zoom" />
-				</a>
-				<a href="images/work-area_2.jpg" target="_blank">
-					<img src="images/work-area_2.jpg" class="zoom" />
-				</a>
-				<a href="images/work-area_3.jpg" target="_blank">
-					<img src="images/work-area_1.jpg" class="zoom" />
-				</a>-->
-					   			</div>
-					   		</div>
-					   	</setion>
-					   	<br />
-					   	<section id="fh5co-services" data-section="services">
-					   		<div class="fh5co-services">
-					   			<div class="container">
-
-					   				<div class="row">
-					   					<div class="col-md-4 text-center">
-					   						<div class="box-services">
-					   							<div class="icon animate-box">
-					   								<span><i class="fa-solid  fa-fan"></i></span>
-					   							</div>
-					   							<div class="fh5co-post animate-box">
-														<h3>Air conditioning</h3>
-														<p>Our air conditioning is so good, it'll make you forget that summer even exists.</p>
-					   							</div>
-					   						</div>
-
-					   						<div class="box-services">
-					   							<div class="icon animate-box">
-					   								<span><i class="fa-solid fa-shower"></i></span>
-					   							</div>
-					   							<div class="fh5co-post animate-box">
-														<h3>Shower</h3>
-														<p>You can come dirty to the office. Or have a workout during the day.</p>
-					   							</div>
-					   						</div>
-					   					</div>
-					   					<div class="col-md-4 text-center">
-												<div class="box-services">
-													<div class="icon animate-box">
-														<span><i class="fa-solid fa-umbrella-beach"></i></span>
-													</div>
-													<div class="fh5co-post animate-box">
-														<h3>Sunny Terrace</h3>
-														<p>Take your sunglasses to work and join discussions like what is the best sunscreen brand...</p>
-													</div>
-												</div>
-
-												<div class="box-services">
-													<div class="icon animate-box">
-														<span><i class="fa-sharp fa-regular fa-clock"></i></span>
-													</div>
-													<div class="fh5co-post animate-box">
-														<h3>Easy Access</h3>
-														<p>We'll set you up with a code or key-fob to enter and leave as you please</p>
-													</div>
-												</div>
-					   					</div>
-					   					<div class="col-md-4 text-center">
-					   						<div class="box-services">
-					   							<div class="icon animate-box">
-					   								<span><i class="fa-solid fa-coffee"></i></span>
-					   							</div>
-					   							<div class="fh5co-post animate-box">
-					   								<h3>Freshly ground, tasty coffee</h3>
-					   								<p>Good coffee is a hug in a mug.</p>
-					   							</div>
-					   						</div>
-
-					   						<div class="box-services">
-					   							<div class="icon animate-box">
-					   								<span><i class="fa-solid fa-wheelchair-move"></i></span>
-					   							</div>
-					   							<div class="fh5co-post animate-box">
-					   								<h3>Wheelchair friendly</h3>
-					   								<p>Ground floor has no steps.</p>
-					   							</div>
-					   						</div>
-					   					</div>
-
-
-
-
-
-					   				</div>
-
-					   			</div>
-
-					   		</div>
-					   	</section>
-
-					   	<!--<section id="fh5co-explore" data-section="explore">
-	 <div class="container">
-		 <div class="row">
-			 <div class="col-md-12 section-heading text-center">
-				 <h2 class="animate-box">Our Activities</h2>
-				 <div class="row">
-					 <div class="col-md-8 col-md-offset-2 subtext animate-box">
-						 <h3>We regulary organize activities to combine work and pleasure and getting to know our coworkers.</h3>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-	 </div>
-	 <div class="fh5co-project">
-		 <div class="container">
-			 <div class="row">
-				 <div class="col-md-4">
-					 <div class="fh5co-portfolio animate-box">
-						 <a href="#">
-							 <div class="portfolio-entry" style="background-image: url(images/activity_lunch.JPG); ">
-								 <div class="desc">
-									 <p>Once a month, we all head out for a fun lunch. It's always a good time, and we get to hang out and chat outside of work.</p>
-								 </div>
-							 </div>
-							 <div class="portfolio-text text-center">
-								 <h3>Monthly Lunches</h3>
-								 <ul class="stuff">-->
-					   	<!--<li><i class="icon-heart2"></i>200</li>
-	<li><i class="icon-eye2"></i>248</li>
-	<li><i class="icon-download"></i>240</li>-->
-					   	<!--</ul>
-				</div>
-			</a>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Membership Plans</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+		<div class="pricing-header">
+		    <h3>Day Pass</h3>
+		    <div class="price">€20<span>/day</span></div>
+		    <div style="font-size: 0.9rem; margin-top: -15px; color: rgba(255,255,255,0.9);">Prices without VAT</div>
 		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/activity_run.jpg);">
-					<div class="desc">
-						<p>All levels welcome. It's not about running like crazy but about having a good time together, getting some fresh air, and exercise. These lunch runs are a great way to break up the workday and boost our mood.</p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Weekly Lunch Runs</h3>
-					<ul class="stuff">-->
-					   	<!--<li><i class="icon-heart2"></i>200</li>
-	<li><i class="icon-eye2"></i>248</li>
-	<li><i class="icon-download"></i>240</li>-->
-					   	<!--</ul>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/activity_swim.jpg);">
-					<div class="desc">
-						<p>Since we are next to the sea, we make it a weekly habit to go for a refreshing swim. Whether you're a seasoned swimmer or just starting out, join in on the fun!  </p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Weekly Sea Swims</h3>
-					<ul class="stuff">-->
-					   	<!--<li><i class="icon-heart2"></i>200</li>
-	<li><i class="icon-eye2"></i>248</li>
-	<li><i class="icon-download"></i>240</li>-->
-					   	<!--</ul>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-4">-->
-					   	<!--<div class="fh5co-portfolio animate-box">
-	<a href="#">
-		<div class="portfolio-entry" style="background-image: url(images/portfolio-4.jpg);">
-			<div class="desc">
-				<p>We are always open for new activities.</p>
+                    <ul class="pricing-features">
+                        <li>Access from 8AM to 8PM</li>
+                        <li>Hot Desk</li>
+                        <li>High-Speed WiFi</li>
+                        <li>Coffee & Tea</li>
+                    </ul>
+			<div class="pricing-footer">
+			    <a href="https://buy.stripe.com/28odUR76K6jN6k000j" class="btn" target="_blank" rel="noopener noreferrer">Get Started</a>
 			</div>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="special-offer-badge blue hover-badge" style="opacity: 0; transition: opacity 0.3s ease;">Special Offer!</div>
+		<div class="pricing-header">
+		    <h3>Flex Desk</h3>
+		    <div class="price" style="position: relative;">
+			<span style="position: absolute; top: -20px; right: 70px; text-decoration: line-through; font-size: 1.5rem; color: rgba(255,255,255,0.7);">€185</span>
+			€120<span>/month</span>
+		    </div>
+		    <div style="font-size: 0.9rem; margin-top: -15px; color: rgba(255,255,255,0.9);">For the first 6 months</div>
+		    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">All prices without VAT</div>
 		</div>
-		<div class="portfolio-text text-center">
-			<h3>Your Proposal ?</h3>
-			<ul class="stuff">-->
-					   	<!--<li><i class="icon-heart2"></i>200</li>
-	<li><i class="icon-eye2"></i>248</li>
-	<li><i class="icon-download"></i>240</li>-->
-					   	<!--</ul>
+                    <ul class="pricing-features">
+                        <li>Access from 8AM to 8PM</li>
+                        <li>Hot Desk</li>
+			<li>High-Speed WiFi</li>
+			<li>Coffee & Tea</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="https://buy.stripe.com/3csg2ZaiW8rV5fW4gA" class="btn" target="_blank" rel="noopener noreferrer">Get Started</a>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="special-offer-badge salmon hover-badge" style="opacity: 0; transition: opacity 0.3s ease;">Special Offer!</div>
+			<div class="pricing-header">
+			    <h3>Fixed Desk</h3>
+			    <div class="price" style="position: relative;">
+				<span style="position: absolute; top: -20px; right: 70px; text-decoration: line-through; font-size: 1.5rem; color: rgba(255,255,255,0.7);">€220</span>
+				€150<span>/month</span>
+			    </div>
+			    <div style="font-size: 0.9rem; margin-top: -15px; color: rgba(255,255,255,0.9);">For the first 6 months</div>
+			    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">All prices without VAT</div>
 			</div>
-		</a>
-	</div>-->
-					   	<!--</div>
-	<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/portfolio-5.jpg);">
-					<div class="desc">
-						<p>We are always open for new activities, new ideas.</p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Your Proposal ?</h3>
-					<ul class="stuff">-->
-					   	<!--<li><i class="icon-heart2"></i>200</li>
-	<li><i class="icon-eye2"></i>248</li>
-	<li><i class="icon-download"></i>240</li>-->
-					   	<!--</ul>
-				</div>
-			</a>
+                    <ul class="pricing-features">
+                        <li>24/7 Access</li>
+                        <li>Dedicated Desk</li>
+                        <li>High-Speed WiFi</li>
+                        <li>Coffee & Tea</li>
+                    </ul>
+		<div class="pricing-footer">
+		    <a href="https://wa.me/34622475591?text=Hi%2C%20I%27m%20interested%20in%20the%20Fixed%20Desk%20option%20%28%E2%82%AC150%2Fmonth%20for%20first%206%20months%29.%20I%20would%20like%20to%20get%20started.%20My%20name%20is%20" class="btn" target="_blank" rel="noopener noreferrer">Get Started</a>
 		</div>
-	</div>
-	<div class="col-md-4">-->
-					   	<!--<div class="fh5co-portfolio animate-box">
-		<a href="#">
-			<div class="portfolio-entry" style="background-image: url(images/portfolio-6.jpg);">
-				<div class="desc">
-					<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-				</div>
-			</div>
-			<div class="portfolio-text text-center">
-				<h3>Words</h3>
-				<ul class="stuff">
-					<li><i class="icon-heart2"></i>200</li>
-					<li><i class="icon-eye2"></i>248</li>
-					<li><i class="icon-download"></i>240</li>
-				</ul>
-			</div>
-		</a>
-	</div>-->
-					   	<!--</div>-->
-					   	<!--<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/portfolio-7.jpg);">
-					<div class="desc">
-						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Soon</h3>
-					<ul class="stuff">
-						<li><i class="icon-heart2"></i>200</li>
-						<li><i class="icon-eye2"></i>248</li>
-						<li><i class="icon-download"></i>240</li>
-					</ul>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/portfolio-8.jpg);">
-					<div class="desc">
-						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Homestate</h3>
-					<ul class="stuff">
-						<li><i class="icon-heart2"></i>200</li>
-						<li><i class="icon-eye2"></i>248</li>
-						<li><i class="icon-download"></i>240</li>
-					</ul>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="fh5co-portfolio animate-box">
-			<a href="#">
-				<div class="portfolio-entry" style="background-image: url(images/portfolio-9.jpg);">
-					<div class="desc">
-						<p>Solid Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="portfolio-text text-center">
-					<h3>Words</h3>
-					<ul class="stuff">
-						<li><i class="icon-heart2"></i>200</li>
-						<li><i class="icon-eye2"></i>248</li>
-						<li><i class="icon-download"></i>240</li>
-					</ul>
-				</div>
-			</a>
-		</div>
-	</div>-->
-					   	<!--</div>
-		</div>
-	</div>-->
-					   	<!--<div id="fh5co-counter-section" class="fh5co-counters">
-		<div class="container">
-			<div class="row">
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<div class="col-md-6 col-md-offset-3 animate-box">
+ <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Space</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/work-area_15.jpg" alt="Coworking Space Image 2">
+                </div>
+		<div class="gallery-item">
+                    <img src="images/work-area_27.jpg" alt="Coworking Space Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_16.jpg" alt="Coworking Space Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_9.jpg" alt="Coworking Space Image 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_31.jpg" alt="Coworking Space Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_32.jpg" alt="Coworking Space Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_33.jpg" alt="Coworking Space Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/work-area_34.jpg" alt="Coworking Space Image 6">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="close-area">
+            <span class="close-lightbox">&times;</span>
+        </div>
+        <div class="nav-area prev-area">
+            <span class="nav-btn prev-btn">&#10094;</span>
+        </div>
+        <div class="nav-area next-area">
+            <span class="nav-btn next-btn">&#10095;</span>
+        </div>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
-				</div>
-			</div>
-			<div class="row animate-box">
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <!-- WhatsApp as the primary, prominent contact method -->
+                <div class="whatsapp-container">
+                    <div class="whatsapp-card">
+                        <div class="whatsapp-icon">
+                            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6 6.31999C16.8669 5.58141 15.9943 4.99596 15.033 4.59767C14.0716 4.19938 13.0406 3.99622 12 3.99999C10.6089 4.00135 9.24248 4.36819 8.03771 5.06377C6.83294 5.75935 5.83208 6.75926 5.13534 7.96335C4.43859 9.16745 4.07046 10.5335 4.06776 11.9246C4.06507 13.3158 4.42793 14.6832 5.12 15.89L4 20L8.2 18.9C9.35975 19.5452 10.6629 19.8861 11.99 19.89C14.0997 19.89 16.124 19.0406 17.6241 17.5405C19.1242 16.0404 19.9736 14.0161 19.9736 11.9064C19.9736 9.79677 19.1242 7.77248 17.6241 6.27237C17.6159 6.26419 17.608 6.25609 17.6 6.24799V6.31999ZM12 18.53C10.8177 18.5308 9.65515 18.2244 8.64 17.64L8.4 17.5L5.91 18.12L6.55 15.69L6.39 15.44C5.73908 14.3919 5.39849 13.1931 5.41 11.97C5.41 10.1652 6.12759 8.43445 7.40384 7.1582C8.68009 5.88194 10.4109 5.16436 12.2156 5.16436C14.0204 5.16436 15.7512 5.88194 17.0274 7.1582C18.3037 8.43445 19.0213 10.1652 19.0213 11.97C19.0213 13.7747 18.3037 15.5055 17.0274 16.7817C15.7512 18.058 14.0204 18.7756 12.2156 18.7756L12 18.53ZM15.61 13.59C15.41 13.49 14.44 13.01 14.26 12.95C14.08 12.89 13.94 12.85 13.81 13.05C13.6144 13.3181 13.404 13.5751 13.18 13.82C13.07 13.96 12.95 13.97 12.75 13.82C11.6097 13.3082 10.6597 12.4511 10.06 11.37C9.85 11.01 10.11 10.97 10.35 10.47C10.41 10.33 10.38 10.21 10.33 10.11C10.28 10.01 9.94 9.03999 9.79 8.63999C9.64 8.24999 9.48 8.29999 9.33 8.28999H9.01C8.84178 8.29551 8.67989 8.35598 8.54755 8.46365C8.41521 8.57131 8.31911 8.71967 8.27 8.88999C8.06974 9.29154 7.97261 9.74303 7.99 10.2C8.01 10.76 8.18 11.3 8.47 11.79C9.1 12.95 9.97 13.95 11.04 14.71C11.6168 15.0317 12.2395 15.2785 12.89 15.44C13.3015 15.5471 13.7312 15.5506 14.14 15.45C14.5669 15.3514 14.9645 15.1488 15.29 14.86C15.4564 14.7262 15.5783 14.5413 15.6434 14.3318C15.7084 14.1222 15.7142 13.8964 15.66 13.68L15.61 13.59Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="whatsapp-content">
+                            <h3>Contact Us on WhatsApp</h3>
+				<a href="https://wa.me/34622475591?text=Hello" class="whatsapp-button" target="_blank" rel="noopener noreferrer">Message Us Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other contact information in a simple list -->
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="#d7938f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#d7938f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p><strong>Address:</strong> C/ de la Lluna, 11, 08001 Barcelona</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.5 6.5C15.2372 6.64382 15.9689 6.96892 16.5 7.5C17.0311 8.03108 17.3562 8.76284 17.5 9.5M15 3C16.5913 3.17976 18.1174 3.91307 19.2426 5.03824C20.3679 6.16341 21.1012 7.68951 21.281 9.281M20.9995 16.4767V19.1864C21.0037 20.2223 20.0723 21.0873 19.0265 20.9929C10.0001 21 3.00006 13.935 3.00713 4.96919C2.91294 3.92895 3.77364 3.00106 4.80817 3.00009H7.52331C7.96253 2.99577 8.38835 3.151 8.72138 3.43684C9.66819 4.24949 10.2772 7.00777 10.0429 8.10428C9.85994 8.96036 8.99696 9.55929 8.41026 10.1448C9.69864 12.4062 11.5747 14.2785 13.8405 15.5644C14.4272 14.9788 15.0274 14.1176 15.8851 13.935C16.9855 13.7008 19.7615 14.3106 20.5709 15.264C20.858 15.6021 21.0105 16.0337 20.9995 16.4767Z" stroke="#d7938f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p><strong>Phone:</strong> +34 622 47 55 91</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8V12L14 14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#d7938f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p><strong>Hours:</strong> Open all week, 8:00 AM to 8:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="social-container">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5932 15.1514 13.8416 15.5297C13.0901 15.9079 12.2385 16.0396 11.4078 15.9059C10.5771 15.7723 9.80977 15.3801 9.21485 14.7852C8.61993 14.1902 8.22774 13.4229 8.09408 12.5922C7.96042 11.7615 8.09208 10.9099 8.47034 10.1584C8.8486 9.40685 9.4542 8.79374 10.201 8.40624C10.9478 8.01874 11.7978 7.87658 12.63 8C13.4789 8.12588 14.2649 8.52146 14.8717 9.1283C15.4785 9.73515 15.8741 10.5211 16 11.37Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.6753732995135!2d2.163373676278422!3d41.381137171300715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f560f02efb%3A0x2876063194e3cd67!2sCarrer%20de%20la%20Lluna%2C%2011%2C%20Ciutat%20Vella%2C%2008001%20Barcelona!5e0!3m2!1sen!2ses!4v1742210138730!5m2!1sen!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
 
-			</div>
-		</div>
-	</div>-->
-					   	<!--</section>-->
-					   	<!--<section id="fh5co-testimony" data-section="testimony">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="animate-box"><span>Our Happy Clients</span></h2>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext animate-box">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>Great place with friendly admosphere. The shower and the location makes place unique and very inviting to go for a quick swim, run, beach break during your hard working day</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_kevin.png); "></div>
-						<span class="user">Kevin Haesendonck <br> <small>Programmer</small></span>
-					</div>
+<!-- Footer -->
+<footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Coworking El Raval. All rights reserved.</p>
+        </div>
+</footer>    
+<!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Show banner when scrolling to pricing section (at the cards, not just the title)
+        document.addEventListener('DOMContentLoaded', function() {
+            let bannerShown = false;
+            const offerBanner = document.getElementById('offer-banner');
+            const pricingGrid = document.querySelector('.pricing-grid');
+            
+            function showBannerOnScroll() {
+                if (!bannerShown && pricingGrid) {
+                    const pricingGridPosition = pricingGrid.getBoundingClientRect();
+                    
+                    // Check if pricing cards are in view (not just the title)
+                    if (pricingGridPosition.top < window.innerHeight * 0.8 && pricingGridPosition.bottom > 0) {
+                        offerBanner.style.display = 'block';
+                        
+                        // Small delay before starting the fade-in
+                        setTimeout(function() {
+                            offerBanner.style.opacity = '1';
+                        }, 50);
+                        
+                        bannerShown = true;
+                        // Remove the scroll listener once banner is shown
+                        window.removeEventListener('scroll', showBannerOnScroll);
+                    }
+                }
+            }
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', showBannerOnScroll);
+        });
+        
+        // Testimonial Slider
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const slidesContainer = document.querySelector('.testimonial-slides');
+        let testimonialTimer = null;
+        
+        function showSlide(index) {
+            // Always ensure valid index
+            if (index >= slides.length) {
+                slideIndex = 0;
+            } else if (index < 0) {
+                slideIndex = slides.length - 1;
+            } else {
+                slideIndex = index;
+            }
+            
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        
+        function nextSlide() {
+            showSlide(slideIndex + 1);
+        }
+        
+        function prevSlide() {
+            // For prev button, we'll actually loop around to the last slide when at the beginning
+            // This creates consistent right-to-left movement
+            if (slideIndex === 0) {
+                showSlide(slides.length - 1);
+            } else {
+                showSlide(slideIndex - 1);
+            }
+            
+            // Completely stop and restart the timer when manually navigating
+            stopAutoScroll();
+            // Start a new timer after 8 seconds
+            setTimeout(startAutoScroll, 8000);
+        }
+        
+        function startAutoScroll() {
+            // Only start if no timer is currently running
+            if (testimonialTimer === null) {
+                testimonialTimer = setInterval(nextSlide, 5000);
+            }
+        }
+        
+        function stopAutoScroll() {
+            // Clear the interval and reset the timer variable
+            if (testimonialTimer !== null) {
+                clearInterval(testimonialTimer);
+                testimonialTimer = null;
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Form Submission (Placeholder)
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+        
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        }
+        
+        // IMPROVED LIGHTBOX FUNCTIONALITY
+        // Gallery images for lightbox
+        const galleryImages = [
+            'images/work-area_15.jpg',
+            'images/work-area_27.jpg',
+            'images/work-area_16.jpg',
+            'images/work-area_9.jpg',
+            'images/work-area_31.jpg',
+            'images/work-area_32.jpg',
+            'images/work-area_33.jpg',
+            'images/work-area_34.jpg'
+        ];
 
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>
-								Lovely little co-working with loads of light, nice people, free coffee and fast wifi. Relaxed and calm place (we translators need to concentrate!) with a meeting room if you need a quiet area for calls. Super close to the beach so you can run, swim or play beach volley (and shower in the office after) or have a drink after work. Well equipped kitchen with a big fridge to warm up some lunch but also lots of food places nearby, even vegan.
-								I've been working from here for nearly 10 months now and it made a big change, I get a lot more done and am glad to have "colleagues" again to chat or go for lunch with after 3 years of working from home.
-							</p>
-						</div>
-						<div class="author-img" style="background-image: url(images//member_britta.png);"></div>
-						<span class="user">Britta Willmes <br> <small>Translator</small></span>
-					</div>
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>Fantastic work space! It has everything it needs: a cosy yet spacious work space, good WiFi (tested in a lengthy zoom call!), an equipped kitchen and clean facilities! The cherry on top: a great location, just two minutes from the beach where you can take a walk during your break!</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_melis.png);"></div>
-						<span class="user">Melis Günay<br> <small></small></span>
-					</div>
-				</div>
+        // Improved lightbox functionality
+        function openLightbox(index) {
+            // Set current index and image source
+            currentImageIndex = index;
+            lightboxImg.src = galleryImages[currentImageIndex];
+            
+            // Display lightbox with fade-in effect
+            lightbox.style.display = 'block';
+            setTimeout(() => {
+                lightbox.style.opacity = '1';
+            }, 10);
+            
+            // Prevent scrolling when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
 
-				<div class="col-md-4">
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>I love it! It has the right size, not too big, nor too small, and offers active people like myself to go for a run and shower afterwards. The vibe fosters productivity and the coffee and Wi-Fi are great as well. Highly recommended!</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_yohay.png);"></div>
-						<span class="user">Yohay Elam <br> <small>Financial Analyst, Entrepreneur</small></span>
-					</div>
+        function closeLightbox() {
+            // Fade-out effect
+            lightbox.style.opacity = '0';
+            
+            // After transition completes, hide completely
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+                // Re-enable scrolling
+                document.body.style.overflow = 'auto';
+            }, 300); // Match this with CSS transition duration
+        }
 
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>Great little cowork space - brand new facilities, super clean and fresh. Plenty of space, and love that it's on the ground floor so easy access and sea breezes when the door is open! Great owner and friendly people around too.</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_sarah.png);"></div>
-						<span class="user">Sarah Smelik <br> <small></small></span>
-					</div>
+        function changeImage(direction) {
+            // Update index with wrapping
+            currentImageIndex += direction;
+            
+            // Wrap around if at the end or beginning
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            
+            // Remove any existing animation classes
+            lightboxImg.classList.remove('slide-left', 'slide-right');
+            
+            // Force a reflow so the animation can be reapplied
+            void lightboxImg.offsetWidth;
+            
+            // Apply the appropriate slide animation based on direction
+            if (direction > 0) {
+                lightboxImg.classList.add('slide-left');
+            } else {
+                lightboxImg.classList.add('slide-right');
+            }
+            
+            // Update the image source
+            lightboxImg.src = galleryImages[currentImageIndex];
+        }
 
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>It is a very pleasant, quiet and bright space. Very good atmosphere, in a very central but quiet area next to Bogatell beach. So it is perfect for combining work with sport, air and sea water.</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_ines.png);"></div>
-						<span class="user">Inês de Lemos <br> <small></small></span>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>I started working here a few months ago, everything was great, the atmosphere is very good and calm, the place is very cozy and the location is incredible.</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_josep.png);"></div>
-						<span class="user">Josep Estudis<br> <small></small></span>
-					</div>
-
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>Increíble co-working en Barcelona. Ambiente muy agradable y luminoso. Muy buena ubicación, a ras de una calle no muy transitada, lo cual asegura una vista despejada y hacia fuera con un máximo de tranquilidad. Las instalaciones son más que suficiente para trabajar cómodamente. Recomiendo 100%</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_hajer.png);"></div>
-						<span class="user">Hajer ROUACHED <br> <small></small></span>
-					</div>
-
-					<div class="testimony-entry animate-box">
-						<div class="feed-bubble">
-							<p>Great place in an unbeatable location. The host is very friendly and welcoming.</p>
-						</div>
-						<div class="author-img" style="background-image: url(images/member_xavi.png);"></div>
-						<span class="user">Xavi Longan <br> <small></small></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
-
-					   	<section id="fh5co-pricing" data-section="pricing">
-					   		<section class="pricing-section bg-3">
-					   			<div class="container">
-					   				<div class="row">
-					   					<div class="col-md-12 section-heading text-center">
-					   						<h2 class="animate-box">Pricing</h2>
-					   						<div class="row">
-					   							<div class="col-md-8 col-md-offset-2 subtext animate-box">
-					   								<h3>For prices you can contact us (see below).</h3>
-					   							</div>
-					   						</div>
-					   					</div>
-					   				</div>
-					   				<!--<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="pricing__item">
-						<h3 class="pricing__title">Startup</h3>
-						<div class="pricing__price"><span class="pricing_currency">$</span>9.90</div>
-						<p class="pricing__sentence">Small business solution</p>
-						<ul class="pricing__feature-list">
-							<li class="pricing__feature">Unlimited calls</li>
-							<li class="pricing__feature">Free hosting</li>
-							<li class="pricing__feature">40MB of storage space</li>
-						</ul>
-						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="pricing__item">
-						<h3 class="pricing__title">Medium</h3>
-						<div class="pricing__price"><span class="pricing_currency">$</span>29,90</div>
-						<p class="pricing__sentence">Medium business solution</p>
-						<ul class="pricing__feature-list">
-							<li class="pricing__feature">Unlimited calls</li>
-							<li class="pricing__feature">Free hosting</li>
-							<li class="pricing__feature">10 hours of support</li>
-							<li class="pricing__feature">Social media integration</li>
-							<li class="pricing__feature">1GB of storage space</li>
-						</ul>
-						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
-					</div>
-				</div>-->
-					   				<!--<div class="col-md-4 text-center animate-box">
-					<div class="pricing__item">
-						<h3 class="pricing__title">Large</h3>
-						<div class="pricing__price"><span class="pricing_currency">$</span>59,90</div>
-						<p class="pricing__sentence">Gigantic business solution</p>
-						<ul class="pricing__feature-list">
-							<li class="pricing__feature">Unlimited calls</li>
-							<li class="pricing__feature">Free hosting</li>
-							<li class="pricing__feature">Unlimited hours of support</li>
-							<li class="pricing__feature">Social media integration</li>
-							<li class="pricing__feature">Anaylitcs integration</li>
-							<li class="pricing__feature">Unlimited storage space</li>
-						</ul>
-						<p><a href="#" class="btn btn-primary btn-lg pricing__action">Read More</a></p>
-					</div>
-				</div>-->
-					   			</div>
-					   		</section>
-					   	</section>
-
-					   	<!--<section id="fh5co-blog" data-section="blog">
-		<div class="fh5co-blog">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 section-heading text-center">
-						<h2 class="animate-box"><span>Read Our Blog</span></h2>
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 subtext">
-								<h3 class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-1.jpg);">
-								<div class="date">
-									<span>03</span>
-									<small>Mar</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-2.jpg);">
-								<div class="date">
-									<span>01</span>
-									<small>Mar</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-3.jpg);">
-								<div class="date">
-									<span>28</span>
-									<small>Feb</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-3.jpg);">
-								<div class="date">
-									<span>28</span>
-									<small>Feb</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-1.jpg);">
-								<div class="date">
-									<span>27</span>
-									<small>Feb</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box blog">
-						<a href="#" class="entry">
-							<div class="blog-bg" style="background-image: url(images/blog-2.jpg);">
-								<div class="date">
-									<span>25</span>
-									<small>Feb</small>
-								</div>
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="desc-grid">
-								<h3>Download Free HTML5 Template</h3>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
-
-
-					   	<div id="fh5co-footer" role="contentinfo">
-					   		<div class="container">
-					   			<div class="row">
-					   				<div class="col-md-4 animate-box">
-					   					<h3 class="section-title">Interested?</h3>
-					   					<p>If you would like to see the office simply message, phone, or mail us and we can arrange a time.</p>
-
-					   				</div>
-
-					   				<div class="col-md-4 animate-box">
-					   					<h3 class="section-title">Our Address</h3>
-					   					<ul class="contact-info">
-					   						<li><i class="icon-map"></i><a href="http://maps.google.com/?q=C/ de la Lluna, 11, 08001 Barcelona" target="_blank">C/ de la Lluna, 11, 08001 Barcelona</li></a>
-					   						<li><i class="icon-phone"></i>+34 622 47 55 91</li>
-					   						<li><i class="icon-envelope"></i>info@coworking-el-raval.com</li>
-					   						<li><i class="icon-globe"><a href="www.coworking-el-raval.com" target="_blank"></i>www.coworking-el-raval.com</li></a>
-					   					</ul>
-					   					<h3 class="section-title">Connect with Us</h3>
-					   					<ul class="social-media">
-					   						<li><a href="https://wa.me/34622475591?text=HeIIo," target="_blank" class="facebook"><i class="icon-whatsapp"></i></a></li>
-					   						<li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-					   						<li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-					   						<li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
-					   					</ul>
-					   				</div>
-					   				<div class="col-md-4 animate-box ">
-					   					<h3 class="section-title">Here we are:</h3>
-					   					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.675092494768!2d2.1633605764975163!3d41.38114327130069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f560f02efb%3A0x2876063194e3cd67!2sC%2F%20de%20la%20Lluna%2C%2011%2C%2008001%20Barcelona!5e0!3m2!1sen!2ses!4v1685741454097!5m2!1sen!2ses" width=100% height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					   					<!--<form class="contact-form">
-						<div class="form-group">
-							<label for="name" class="sr-only">Name</label>
-							<input type="name" class="form-control" id="name" placeholder="Name">
-						</div>
-						<div class="form-group">
-							<label for="email" class="sr-only">Email</label>
-							<input type="email" class="form-control" id="email" placeholder="Email">
-						</div>
-						<div class="form-group">
-							<label for="message" class="sr-only">Message</label>
-							<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Send Message">
-						</div>
-					</form>-->
-					   				</div>
-					   			</div>
-					   			<div class="row">
-					   				<div class="col-md-12">
-					   					<!--<p class="copy-right">
-						&copy; 2015 Solid Free Template. All Rights Reserved. <br>
-						Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a>
-						Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a>
-					</p>-->
-					   				</div>
-					   			</div>
-					   		</div>
-					   	</div>
-
-
-					   	<!-- jQuery -->
-					   	<script src="js/jquery.min.js"></script>
-					   	<!-- jQuery Easing -->
-					   	<script src="js/jquery.easing.1.3.js"></script>
-					   	<!-- Bootstrap -->
-					   	<script src="js/bootstrap.min.js"></script>
-					   	<!-- Waypoints -->
-					   	<script src="js/jquery.waypoints.min.js"></script>
-					   	<!-- Stellar Parallax -->
-					   	<script src="js/jquery.stellar.min.js"></script>
-					   	<!-- Counters -->
-					   	<script src="js/jquery.countTo.js"></script>
-					   	<!-- Main JS (Do not remove) -->
-					   	<script src="js/main.js"></script>
-
-					   	<!--fontawsome-->
-					   	<script src="https://kit.fontawesome.com/7b9e9c3d29.js" crossorigin="anonymous"></script>
-
-					   </body>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up each gallery item click handler
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    openLightbox(index);
+                });
+            });
+            
+            // Set up lightbox control event listeners
+            const closeArea = document.querySelector('.close-area');
+            if (closeArea) {
+                closeArea.addEventListener('click', closeLightbox);
+            }
+            
+            const prevArea = document.querySelector('.prev-area');
+            if (prevArea) {
+                prevArea.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent lightbox from closing
+                    changeImage(-1);
+                });
+            }
+            
+            const nextArea = document.querySelector('.next-area');
+            if (nextArea) {
+                nextArea.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent lightbox from closing
+                    changeImage(1);
+                });
+            }
+            
+            // Make clicking on the lightbox background close it
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Prevent click on the image from closing the lightbox
+            lightboxImg.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.style.display === 'block') {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowRight') {
+                        changeImage(1);
+                    } else if (e.key === 'ArrowLeft') {
+                        changeImage(-1);
+                    }
+                }
+            });
+            
+            // Make pricing cards clickable
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            
+            pricingCards.forEach(card => {
+                // Find the "Get Started" link in each card
+                const getStartedLink = card.querySelector('.pricing-footer .btn');
+                
+                if (getStartedLink) {
+                    const targetUrl = getStartedLink.getAttribute('href');
+                    
+                    // Make the entire card clickable, except for the existing button
+                    card.style.cursor = 'pointer';
+                    
+                    card.addEventListener('click', function(e) {
+                        // Only redirect if the click wasn't on the button itself or its parent (pricing-footer)
+                        if (!e.target.closest('.pricing-footer')) {
+                            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                        }
+                    });
+                    
+                    // Add hover effect to indicate clickability
+                    card.addEventListener('mouseenter', function() {
+                        if (!card.classList.contains('popular')) {
+                            card.style.transform = 'translateY(-10px)';
+                        } else {
+                            card.style.transform = 'scale(1.05) translateY(-10px)';
+                        }
+                        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        if (!card.classList.contains('popular')) {
+                            card.style.transform = '';
+                        } else {
+                            card.style.transform = 'scale(1.05)';
+                        }
+                        card.style.boxShadow = '';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
-
