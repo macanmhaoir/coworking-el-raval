@@ -67,7 +67,7 @@
         }
         
         .btn:hover {
-            background-color: #e85a2a;
+            background-color: #e85a2a; /* Consider changing this hover color if it clashes */
             transform: translateY(-2px);
         }
         
@@ -121,14 +121,15 @@
         }
         
         header.scrolled {
-            padding: 10px 0;
+            padding: 10px 0; /* Adjust padding on scroll */
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 20px 0; /* Initial padding */
+            transition: padding 0.3s ease; /* Smooth transition for padding change */
         }
         
         .logo {
@@ -269,16 +270,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('./images/work-area_13.jpg');
+            background-image: url('./images/work-area_13.jpg'); /* Ensure this path is correct */
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-            filter: brightness(0.5); /* This dramatically darkens the image */
+            filter: brightness(0.5); 
             z-index: -1;
         }
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding-top: 80px; /* Add padding to avoid overlap with fixed header */
         }
         
         .hero h1 {
@@ -297,72 +299,65 @@
             justify-content: center;
             gap: 20px;
         }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
+
+        /* Offer Banner */
+        #offer-banner {
+            display: none; 
+            position: fixed; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            z-index: 1000; 
+            opacity: 0; 
+            transition: opacity 0.5s ease-in-out; 
+            cursor: pointer;
+        }
+
+        .offer-banner-content {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            max-width: 600px; 
+            width: 90%; 
+            background-color: rgba(215, 147, 143, 0.95); 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4); 
+            border: 2px solid white; 
+            cursor: default;
+        }
+
+        .close-offer-banner {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1;
+            cursor: pointer;
+            padding: 5px;
+            transition: opacity 0.2s ease;
+            z-index: 10; 
+        }
+
+        .close-offer-banner:hover {
+            opacity: 0.7;
         }
         
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+        /* About Section (If you add one later) */
+        /* 
+        .about-content { ... }
+        .about-text { ... }
+        .about-image { ... }
+        */
         
         /* Services Section */
         .services {
             background-color: #f8f9fa;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
         }
         
         /* Pricing Section */
@@ -378,11 +373,13 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            position: relative; 
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
         }
         
         .pricing-header {
@@ -394,6 +391,7 @@
         .pricing-header h3 {
             font-size: 1.8rem;
             color: white;
+            margin-bottom: 0.5rem; /* Reduce margin if needed */
         }
         
         .price {
@@ -410,6 +408,7 @@
         .pricing-features {
             padding: 30px 20px;
             list-style: none;
+            margin-bottom: 0; /* Reset default margin */
         }
         
         .pricing-features li {
@@ -425,7 +424,16 @@
         }
         
         .pricing-footer {
-            padding: 0 20px 30px;
+            padding: 0 20px 30px; /* Adjust padding */
+        }
+
+        /* NEW: Style for the Stripe access info note */
+        .stripe-access-info {
+            font-size: 0.85rem;  /* Smaller text */
+            margin-top: 15px;   /* Space below the button */
+            color: #555;       /* Grey text color */
+            line-height: 1.4;   /* Adjust line spacing if needed */
+            margin-bottom: 0;   /* Remove default paragraph bottom margin */
         }
         
         /* Popular plan highlight */
@@ -434,11 +442,12 @@
             position: relative;
             z-index: 1;
             border: 2px solid var(--primary);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .pricing-card.popular:hover {
             transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
         }
         
         .pricing-card.popular .pricing-header {
@@ -515,330 +524,7 @@
         .gallery-item:hover::before {
             opacity: 1;
         }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background-color: #f8f9fa;
-        }
-        
-        .testimonial-slider {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        
-        .testimonial-slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-slide {
-            min-width: 100%;
-            padding: 0 20px;
-        }
-        
-        .testimonial-content {
-            background-color: white;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-        
-        .testimonial-content::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 80px;
-            color: #f0f0f0;
-            font-family: Georgia, serif;
-            z-index: 0;
-        }
-        
-        .testimonial-text {
-            position: relative;
-            z-index: 1;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .author-details h4 {
-            margin-bottom: 5px;
-        }
-        
-        .author-details p {
-            color: #777;
-            margin: 0;
-        }
-        
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .testimonial-nav button {
-            background-color: transparent;
-            border: none;
-            font-size: 2rem;
-            color: var(--secondary);
-            cursor: pointer;
-            padding: 0 15px;
-            transition: color 0.3s ease;
-        }
-        
-        .testimonial-nav button:hover {
-            color: var(--primary);
-        }
-        
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 20px;
-        }
-        
-        .contact-details {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .contact-details li {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .contact-details i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .footer-logo span {
-            color: var(--primary);
-        }
-        
-        .footer-about p {
-            margin-bottom: 20px;
-        }
-        
-        .footer-links h3,
-        .footer-newsletter h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-links h3::after,
-        .footer-newsletter h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-newsletter p {
-            margin-bottom: 20px;
-        }
-        
-        .newsletter-form {
-            display: flex;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-        }
-        
-        .newsletter-form button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Responsive Styles */
-        @media screen and (max-width: 991px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .about-content {
-                flex-direction: column-reverse;
-            }
-            
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-        }
-        
-        @media screen and (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 60%;
-                height: calc(100vh - 80px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: right 0.5s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media screen and (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .testimonial-content {
-                padding: 20px;
-            }
-        }
-        
+                
         /* IMPROVED LIGHTBOX STYLES */
         .lightbox {
             display: none;
@@ -863,32 +549,23 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease; 
         }
 
-        /* Navigation areas - wider clickable areas */
         .nav-area {
             position: absolute;
             top: 0;
             height: 100%;
-            width: 30%;
+            width: 30%; 
             cursor: pointer;
             z-index: 1105;
             display: flex;
             align-items: center;
         }
 
-        .prev-area {
-            left: 0;
-            justify-content: flex-start;
-        }
+        .prev-area { left: 0; justify-content: flex-start; }
+        .next-area { right: 0; justify-content: flex-end; }
 
-        .next-area {
-            right: 0;
-            justify-content: flex-end;
-        }
-
-        /* Navigation buttons */
         .nav-btn {
             color: white;
             font-size: 35px;
@@ -900,170 +577,57 @@
             transition: all 0.3s ease;
             z-index: 1110;
             background-color: rgba(0, 0, 0, 0.2);
-            pointer-events: none; /* This makes sure clicks go through to the parent .nav-area */
+            pointer-events: none; 
         }
+        .prev-btn { margin-left: 20px; }
+        .next-btn { margin-right: 20px; }
+        .nav-area:hover .nav-btn { background-color: rgba(215, 147, 143, 0.7); transform: scale(1.1); }
 
-        .prev-btn {
-            margin-left: 20px;
-        }
-
-        .next-btn {
-            margin-right: 20px;
-        }
-
-        .nav-area:hover .nav-btn {
-            background-color: rgba(215, 147, 143, 0.7);
-            transform: scale(1.1);
-        }
-
-        /* Larger close button area */
         .close-area {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1120;
+            top: 0; right: 0;
+            width: 100px; height: 100px; 
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 1120;
         }
-
         .close-lightbox {
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            pointer-events: none;
+            color: #f1f1f1; font-size: 40px; font-weight: bold;
+            transition: 0.3s; pointer-events: none; 
         }
+        .close-area:hover .close-lightbox { color: var(--primary); transform: scale(1.1); }
 
-        .close-area:hover .close-lightbox {
-            color: var(--primary);
-            transform: scale(1.1);
-        }
-
-        /* Animation for lightbox image */
         @keyframes zoom {
-            from {transform: translate(-50%, -50%) scale(0.9)}
+            from {transform: translate(-50%, -50%) scale(0.9)} 
             to {transform: translate(-50%, -50%) scale(1)}
         }
+        .lightbox-content { animation-name: zoom; animation-duration: 0.4s; }
 
-        .lightbox-content {
-            animation-name: zoom;
-            animation-duration: 0.4s;
-        }
-
-        /* Responsive adjustments */
         @media screen and (max-width: 768px) {
-            .nav-btn {
-                font-size: 25px;
-                padding: 10px;
-            }
-            
-            .prev-btn {
-                margin-left: 10px;
-            }
-            
-            .next-btn {
-                margin-right: 10px;
-            }
-            
-            .close-area {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .close-lightbox {
-                font-size: 30px;
-            }
-        }
-        
-        .price-tag:hover {
-            transform: translateY(-10px);
+            .nav-btn { font-size: 25px; padding: 10px; }
+            .prev-btn { margin-left: 10px; }
+            .next-btn { margin-right: 10px; }
+            .close-area { width: 80px; height: 80px; }
+            .close-lightbox { font-size: 30px; }
         }
         
         /* Contact Styles */
-        /* Contact Section Styles */
         .contact {
-            background-color: #f8f9fa;
+            background-color: #f8f9fa; 
             padding: 80px 0;
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; 
             gap: 40px;
         }
         
-        /* Info Cards */
-        .info-card {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 25px 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border-left: 5px solid #d7938f;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(215, 147, 143, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
-            z-index: 0;
-        }
-        
-        .info-icon {
-            width: 70px;
-            height: 70px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 25px;
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(215, 147, 143, 0.2);
-            border: 1px solid rgba(215, 147, 143, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .info-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .info-content h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #2e4057;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .info-content p {
-            margin: 0;
-            color: #555;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-        
-        /* Prominent WhatsApp Section */
         .whatsapp-container {
-            margin-bottom: 40px;
+            margin-bottom: 40px; 
         }
         
         .whatsapp-card {
-            background-color: #25D366;
+            background-color: #25D366; 
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
@@ -1073,7 +637,7 @@
         }
         
         .whatsapp-icon {
-            width: 80px;
+            width: 80px; 
             height: 80px;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
@@ -1085,175 +649,117 @@
             border: 2px solid rgba(255, 255, 255, 0.4);
         }
         
-        .whatsapp-content {
-            flex: 1;
-        }
+        .whatsapp-content { flex: 1; }
         
         .whatsapp-content h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            color: white; font-size: 1.5rem; margin-bottom: 10px; font-weight: 700;
         }
         
         .whatsapp-content p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
-            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9); margin-bottom: 15px; font-size: 1.05rem; 
         }
         
         .whatsapp-button {
-            display: inline-block;
-            background-color: white;
-            color: #25D366;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1.05rem;
+            display: inline-block; background-color: white; color: #25D366; 
+            padding: 12px 24px; border-radius: 50px; 
+            font-weight: 600; text-decoration: none; font-size: 1.05rem; 
+            transition: transform 0.3s ease, background-color 0.3s ease; 
         }
         
-        /* Contact Details */
+        .whatsapp-button:hover { background-color: #f0f0f0; transform: translateY(-2px); }
+        
         .contact-details {
-            margin-bottom: 40px;
+            margin-bottom: 40px; 
+            list-style: none; /* Ensure no list bullets */
+            padding: 0; /* Remove default padding */
         }
         
         .detail-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+            display: flex; align-items: center; margin-bottom: 20px; 
         }
         
         .detail-icon {
-            width: 45px;
-            height: 45px;
-            background-color: rgba(215, 147, 143, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
+            width: 45px; height: 45px;
+            background-color: rgba(215, 147, 143, 0.1); 
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin-right: 15px; flex-shrink: 0;
         }
         
-        .detail-item p {
-            margin: 0;
-            font-size: 1.05rem;
-            color: #333;
-        }
+        .detail-item p { margin: 0; font-size: 1.05rem; color: #333; }
+        .detail-item strong { color: #2e4057; font-weight: 600; }
         
-        .detail-item strong {
-            color: #2e4057;
-            font-weight: 600;
-        }
+        .social-container { text-align: center; margin-top: 30px; }
+        .social-container h3 { margin-bottom: 20px; color: #2e4057; }
         
-        /* Social Links */
-        .social-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .social-container h3 {
-            margin-bottom: 20px;
-            color: #2e4057;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+        .social-links { display: flex; justify-content: center; gap: 15px; }
         
         .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: #d7938f;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; background-color: #d7938f; 
+            border-radius: 50%; transition: all 0.3s ease;
+            text-decoration: none; /* Ensure no underline */
         }
         
-        .social-link:hover {
-            transform: translateY(-5px);
-            background-color: #2e4057;
-        }
+        .social-link svg { width: 24px; height: 24px; } /* Removed stroke/fill here, handled in SVG */
         
-        /* Map Container */
+        .social-link:hover { transform: translateY(-5px); background-color: #2e4057; }
+        
         .map-container {
-            height: 500px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 500px; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
         }
         
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
+        /* Removed complex footer styles as HTML is simple */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Responsive Styles */
         @media screen and (max-width: 991px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .map-container {
-                order: -1; /* Move map above contact info on mobile */
-                margin-bottom: 30px;
-                height: 400px;
-            }
+            .hero h1 { font-size: 3rem; }
+            .pricing-card.popular { transform: scale(1); } /* Reset popular scale */
+            .pricing-card.popular:hover { transform: translateY(-10px); } /* Only lift popular on hover */
+            .contact-grid { grid-template-columns: 1fr; }
+            .map-container { order: -1; margin-bottom: 30px; height: 400px; }
         }
         
         @media screen and (max-width: 768px) {
-            .info-card {
-                padding: 20px;
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 80px; /* Adjust if header height changes */
+                right: -100%; width: 60%; height: calc(100vh - 80px); /* Adjust */
+                background-color: white; flex-direction: column;
+                align-items: center; justify-content: center;
+                transition: right 0.5s ease; box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             }
-            
-            .info-icon {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .whatsapp-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 25px 20px;
-            }
-            
-            .whatsapp-icon {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .whatsapp-button {
-                width: 100%;
-                text-align: center;
-            }
+            .nav-links.active { right: 0; }
+            .nav-links li { margin: 15px 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; gap: 10px; }
+            .section-title h2 { font-size: 2rem; }
+            .whatsapp-card { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .whatsapp-icon { margin-right: 0; margin-bottom: 20px; }
+            .whatsapp-button { width: 100%; text-align: center; }
         }
         
         @media screen and (max-width: 480px) {
-            .info-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .info-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .lang-selector {
-                margin-left: 10px;
-            }
-            
-            .lang-selector-btn {
-                padding: 4px 8px;
-                font-size: 0.9rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            section { padding: 60px 0; }
+            .lang-selector { margin-left: 10px; }
+            .lang-selector-btn { padding: 4px 8px; font-size: 0.9rem; }
+            .whatsapp-icon { width: 60px; height: 60px; }
+            .social-link { width: 45px; height: 45px; }
+            .social-link svg { width: 20px; height: 20px; }
         }
     </style>
 </head>
@@ -1285,7 +791,7 @@
                             <span>English</span>
                         </div>
                         <div class="lang-option" data-lang="ca">
-			    <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/es-ct.svg" alt="Català">
+			                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/es-ct.svg" alt="Català">
                             <span>Català</span>
                         </div>
                         <div class="lang-option" data-lang="es">
@@ -1311,8 +817,13 @@
             <div class="hero-content">
                 <h1 class="hero-title">A workspace in the City Centre</h1>
                 <p class="hero-subtitle">A calm work environment in Barcelona's cultural quarter. Functional spaces with everything you need in the authentic atmosphere of El Raval.</p>
-                <div id="offer-banner" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; opacity: 0; transition: opacity 0.5s ease-in-out; cursor: pointer;" onclick="this.style.opacity = '0'; setTimeout(() => { this.style.display = 'none'; }, 500);">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 600px; width: 90%; background-color: rgba(215, 147, 143, 0.95); padding: 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 2px solid white; cursor: default;" onclick="event.stopPropagation();">
+                
+                <!-- Offer Banner -->
+                <div id="offer-banner" onclick="closeOfferBanner()">
+                    <div class="offer-banner-content" onclick="event.stopPropagation();">
+                        <!-- Close Button -->
+                        <span class="close-offer-banner" onclick="closeOfferBanner()">×</span> 
+                        
                         <!-- Content -->
                         <div style="text-align: center;">
                             <h3 style="color: white; font-size: 2.2rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);" class="offer-title">Limited Time Offer!</h3>
@@ -1329,10 +840,11 @@
                                     <span style="text-decoration: line-through; margin-left: 8px; color: rgba(255,255,255,0.7); font-size: 1.3rem;" class="fixed-desk-original">€220</span>
                                 </a>
                             </div>
-                            <p style="color: white; font-size: 1rem; margin-top: 15px;" class="price-vat-note">All prices without VAT</p>
+                            <p style="color: white; font-size: 1rem; margin-top: 15px; margin-bottom: 0;" class="price-vat-note">All prices without VAT</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="hero-buttons">
                     <a href="#pricing" class="btn btn-see-pricing">See Pricing</a>
                     <a href="#contact" class="btn btn-book-tour">Book a Tour</a>
@@ -1401,6 +913,7 @@
                 <h2 class="pricing-title">Membership Plans</h2>
             </div>
             <div class="pricing-grid">
+                <!-- Day Pass Card -->
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3 class="daypass-title">Day Pass</h3>
@@ -1415,10 +928,14 @@
                     </ul>
                     <div class="pricing-footer">
                         <a href="https://buy.stripe.com/28odUR76K6jN6k000j" class="btn btn-get-started" target="_blank" rel="noopener noreferrer">Get Started</a>
+                        <!-- WhatsApp Info Added -->
+                        <p class="stripe-access-info daypass-access-info"></p>
                     </div>
                 </div>
+
+                <!-- Flex Desk Card (Popular) -->
                 <div class="pricing-card popular">
-                    <div class="special-offer-badge blue hover-badge" style="opacity: 0; transition: opacity 0.3s ease;" class="special-offer">Special Offer!</div>
+                    <div class="special-offer-badge blue hover-badge special-offer" style="opacity: 0; transition: opacity 0.3s ease;">Special Offer!</div>
                     <div class="pricing-header">
                         <h3 class="flexdesk-title">Flex Desk</h3>
                         <div class="price" style="position: relative;">
@@ -1436,10 +953,14 @@
                     </ul>
                     <div class="pricing-footer">
                         <a href="https://buy.stripe.com/3csg2ZaiW8rV5fW4gA" class="btn btn-get-started" target="_blank" rel="noopener noreferrer">Get Started</a>
+                        <!-- WhatsApp Info Added -->
+                        <p class="stripe-access-info flexdesk-access-info"></p>
                     </div>
                 </div>
+
+                <!-- Fixed Desk Card -->
                 <div class="pricing-card">
-                    <div class="special-offer-badge salmon hover-badge" style="opacity: 0; transition: opacity 0.3s ease;" class="special-offer">Special Offer!</div>
+                    <div class="special-offer-badge salmon hover-badge special-offer" style="opacity: 0; transition: opacity 0.3s ease;">Special Offer!</div>
                     <div class="pricing-header">
                         <h3 class="fixeddesk-title">Fixed Desk</h3>
                         <div class="price" style="position: relative;">
@@ -1457,6 +978,7 @@
                     </ul>
                     <div class="pricing-footer">
                         <a href="https://wa.me/34622475591?text=Hi%2C%20I%27m%20interested%20in%20the%20Fixed%20Desk%20option%20%28%E2%82%AC150%2Fmonth%20for%20first%206%20months%29.%20I%20would%20like%20to%20get%20started.%20My%20name%20is%20" class="btn btn-get-started fixed-desk-contact" target="_blank" rel="noopener noreferrer">Get Started</a>
+                        <!-- No WhatsApp info needed here as it uses WhatsApp directly -->
                     </div>
                 </div>
             </div>
@@ -1483,16 +1005,16 @@
                     <img src="images/work-area_9.jpg" alt="Coworking Space Image 5">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/work-area_31.jpg" alt="Coworking Space Image 6">
+                    <img src="images/work-area_31.jpg" alt="Coworking Space Image 7">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/work-area_32.jpg" alt="Coworking Space Image 6">
+                    <img src="images/work-area_32.jpg" alt="Coworking Space Image 8">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/work-area_33.jpg" alt="Coworking Space Image 6">
+                    <img src="images/work-area_33.jpg" alt="Coworking Space Image 9">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/work-area_34.jpg" alt="Coworking Space Image 6">
+                    <img src="images/work-area_34.jpg" alt="Coworking Space Image 10">
                 </div>
             </div>
         </div>
@@ -1501,13 +1023,13 @@
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <div class="close-area">
-            <span class="close-lightbox">&times;</span>
+            <span class="close-lightbox">×</span>
         </div>
         <div class="nav-area prev-area">
-            <span class="nav-btn prev-btn">&#10094;</span>
+            <span class="nav-btn prev-btn">❮</span>
         </div>
         <div class="nav-area next-area">
-            <span class="nav-btn next-btn">&#10095;</span>
+            <span class="nav-btn next-btn">❯</span>
         </div>
         <img class="lightbox-content" id="lightbox-img">
     </div>
@@ -1607,7 +1129,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-bottom">
-            <p class="copyright">&copy; 2025 Coworking El Raval. All rights reserved.</p>
+            <p class="copyright">© 2025 Coworking El Raval. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1616,258 +1138,51 @@
         // Language translations
         const translations = {
             en: {
-                // Navigation
-                navHome: "Home",
-                navServices: "We offer you",
-                navPricing: "Pricing",
-                navGallery: "Gallery",
-                navContact: "Contact",
-                
-                // Hero section
-                heroTitle: "A workspace in the City Centre",
-                heroSubtitle: "A calm work environment in Barcelona's cultural quarter. Functional spaces with everything you need in the authentic atmosphere of El Raval.",
-                btnSeePricing: "See Pricing",
-                btnBookTour: "Book a Tour",
-                
-                // Offer banner
-                offerTitle: "Limited Time Offer!",
-                offerSubtitle: "Join now and enjoy our special prices for your first 6 months:",
-                flexDeskPromo: "Flex Desk: €120",
-                flexDeskOriginal: "€185",
-                fixedDeskPromo: "Fixed Desk: €150",
-                fixedDeskOriginal: "€220",
-                priceVatNote: "All prices without VAT",
-                
-                // Services section
-                servicesTitle: "We offer you",
-                featureAcTitle: "Air conditioning",
-                featureAcDesc: "Our air conditioning is so good, it'll make you forget that summer even exists.",
-                featureTerraceTitle: "Sunny Terrace",
-                featureTerraceDesc: "Take your sunglasses to work and join discussions like what is the best sunscreen brand...",
-                featureCoffeeTitle: "Freshly ground, tasty coffee",
-                featureCoffeeDesc: "Good coffee is a hug in a mug.",
-                featureShowerTitle: "Shower",
-                featureShowerDesc: "You can come dirty to the office. Or have a workout during the day.",
-                featureAccessTitle: "Easy Access",
-                featureAccessDesc: "We'll set you up with a code or key-fob to enter and leave as you please.",
-                featureWheelchairTitle: "Wheelchair friendly",
-                featureWheelchairDesc: "Ground floor has no steps.",
-                
-                // Pricing section
-                pricingTitle: "Membership Plans",
-                daypassTitle: "Day Pass",
-                flexdeskTitle: "Flex Desk",
-                fixeddeskTitle: "Fixed Desk",
-                perDay: "/day",
-                perMonth: "/month",
-                pricesVatNote: "Prices without VAT",
-                
-                // Pricing features
-                daypassFeature1: "Access from 8AM to 8PM",
-                daypassFeature2: "Hot Desk",
-                daypassFeature3: "High-Speed WiFi",
-                daypassFeature4: "Coffee & Tea",
-                
-                flexdeskFeature1: "Access from 8AM to 8PM",
-                flexdeskFeature2: "Hot Desk",
-                flexdeskFeature3: "High-Speed WiFi",
-                flexdeskFeature4: "Coffee & Tea",
-                
-                fixeddeskFeature1: "24/7 Access",
-                fixeddeskFeature2: "Dedicated Desk",
-                fixeddeskFeature3: "High-Speed WiFi",
-                fixeddeskFeature4: "Coffee & Tea",
-                
-                specialOffer: "Special Offer!",
-                promoDuration: "For the first 6 months",
-                btnGetStarted: "Get Started",
-                
-                // Gallery section
+                navHome: "Home", navServices: "We offer you", navPricing: "Pricing", navGallery: "Gallery", navContact: "Contact",
+                heroTitle: "A workspace in the City Centre", heroSubtitle: "A calm work environment in Barcelona's cultural quarter. Functional spaces with everything you need in the authentic atmosphere of El Raval.", btnSeePricing: "See Pricing", btnBookTour: "Book a Tour",
+                offerTitle: "Limited Time Offer!", offerSubtitle: "Join now and enjoy our special prices for your first 6 months:", flexDeskPromo: "Flex Desk: €120", flexDeskOriginal: "€185", fixedDeskPromo: "Fixed Desk: €150", fixedDeskOriginal: "€220", priceVatNote: "All prices without VAT",
+                servicesTitle: "We offer you", featureAcTitle: "Air conditioning", featureAcDesc: "Our air conditioning is so good, it'll make you forget that summer even exists.", featureTerraceTitle: "Sunny Terrace", featureTerraceDesc: "Take your sunglasses to work and join discussions like what is the best sunscreen brand...", featureCoffeeTitle: "Freshly ground, tasty coffee", featureCoffeeDesc: "Good coffee is a hug in a mug.", featureShowerTitle: "Shower", featureShowerDesc: "You can come dirty to the office. Or have a workout during the day.", featureAccessTitle: "Easy Access", featureAccessDesc: "We'll set you up with a code or key-fob to enter and leave as you please.", featureWheelchairTitle: "Wheelchair friendly", featureWheelchairDesc: "Ground floor has no steps.",
+                pricingTitle: "Membership Plans", daypassTitle: "Day Pass", flexdeskTitle: "Flex Desk", fixeddeskTitle: "Fixed Desk", perDay: "/day", perMonth: "/month", pricesVatNote: "Prices without VAT",
+                daypassFeature1: "Access from 8AM to 8PM", daypassFeature2: "Hot Desk", daypassFeature3: "High-Speed WiFi", daypassFeature4: "Coffee & Tea",
+                flexdeskFeature1: "Access from 8AM to 8PM", flexdeskFeature2: "Hot Desk", flexdeskFeature3: "High-Speed WiFi", flexdeskFeature4: "Coffee & Tea",
+                fixeddeskFeature1: "24/7 Access", fixeddeskFeature2: "Dedicated Desk", fixeddeskFeature3: "High-Speed WiFi", fixeddeskFeature4: "Coffee & Tea",
+                specialOffer: "Special Offer!", promoDuration: "For the first 6 months", btnGetStarted: "Get Started",
+                // NEW Translation Key
+                stripeAccessInfo: "After payment, your office access code will be sent via WhatsApp to the number provided during checkout.",
                 galleryTitle: "Our Space",
-                
-                // Contact section
-                contactTitle: "Get In Touch",
-                whatsappTitle: "Contact Us on WhatsApp",
-                whatsappButton: "Message Us Now",
-                addressLabel: "Address:",
-                addressText: "C/ de la Lluna, 11, 08001 Barcelona",
-                phoneLabel: "Phone:",
-                phoneText: "+34 622 47 55 91",
-                hoursLabel: "Hours:",
-                hoursText: "Open all week, 8:00 AM to 8:00 PM",
-                socialTitle: "Follow Us",
-                
-                // Footer
+                contactTitle: "Get In Touch", whatsappTitle: "Contact Us on WhatsApp", whatsappButton: "Message Us Now", addressLabel: "Address:", addressText: "C/ de la Lluna, 11, 08001 Barcelona", phoneLabel: "Phone:", phoneText: "+34 622 47 55 91", hoursLabel: "Hours:", hoursText: "Open all week, 8:00 AM to 8:00 PM", socialTitle: "Follow Us",
                 copyright: "© 2025 Coworking El Raval. All rights reserved."
             },
             es: {
-                // Navigation
-                navHome: "Inicio",
-                navServices: "Te ofrecemos",
-                navPricing: "Precios",
-                navGallery: "Galería",
-                navContact: "Contacto",
-                
-                // Hero section
-                heroTitle: "Un espacio de trabajo en el centro de la ciudad",
-                heroSubtitle: "Un ambiente de trabajo tranquilo en el barrio cultural de Barcelona. Espacios funcionales con todo lo que necesitas en la auténtica atmósfera de El Raval.",
-                btnSeePricing: "Ver precios",
-                btnBookTour: "Reservar visita",
-                
-                // Offer banner
-                offerTitle: "¡Oferta por tiempo limitado!",
-                offerSubtitle: "Únete ahora y disfruta de nuestros precios especiales durante tus primeros 6 meses:",
-                flexDeskPromo: "Escritorio flexible: 120€",
-                flexDeskOriginal: "185€",
-                fixedDeskPromo: "Escritorio fijo: 150€",
-                fixedDeskOriginal: "220€",
-                priceVatNote: "Todos los precios sin IVA",
-                
-                // Services section
-                servicesTitle: "Te ofrecemos",
-                featureAcTitle: "Aire acondicionado",
-                featureAcDesc: "Nuestro aire acondicionado es tan bueno que te hará olvidar que existe el verano.",
-                featureTerraceTitle: "Terraza soleada",
-                featureTerraceDesc: "Lleva tus gafas de sol al trabajo y únete a conversaciones como cuál es la mejor marca de protector solar...",
-                featureCoffeeTitle: "Café recién molido y sabroso",
-                featureCoffeeDesc: "Un buen café es un abrazo en una taza.",
-                featureShowerTitle: "Ducha",
-                featureShowerDesc: "Puedes venir sucio a la oficina. O hacer ejercicio durante el día.",
-                featureAccessTitle: "Acceso fácil",
-                featureAccessDesc: "Te configuraremos un código o llavero para entrar y salir cuando quieras.",
-                featureWheelchairTitle: "Accesible en silla de ruedas",
-                featureWheelchairDesc: "La planta baja no tiene escalones.",
-                
-                // Pricing section
-                pricingTitle: "Planes de membresía",
-                daypassTitle: "Pase diario",
-                flexdeskTitle: "Escritorio flexible",
-                fixeddeskTitle: "Escritorio fijo",
-                perDay: "/día",
-                perMonth: "/mes",
-                pricesVatNote: "Precios sin IVA",
-                
-                // Pricing features
-                daypassFeature1: "Acceso de 8AM a 8PM",
-                daypassFeature2: "Escritorio compartido",
-                daypassFeature3: "WiFi de alta velocidad",
-                daypassFeature4: "Café y té",
-                
-                flexdeskFeature1: "Acceso de 8AM a 8PM",
-                flexdeskFeature2: "Escritorio compartido",
-                flexdeskFeature3: "WiFi de alta velocidad",
-                flexdeskFeature4: "Café y té",
-                
-                fixeddeskFeature1: "Acceso 24/7",
-                fixeddeskFeature2: "Escritorio dedicado",
-                fixeddeskFeature3: "WiFi de alta velocidad",
-                fixeddeskFeature4: "Café y té",
-                
-                specialOffer: "¡Oferta Especial!",
-                promoDuration: "Durante los primeros 6 meses",
-                btnGetStarted: "Comenzar",
-                
-                // Gallery section
+                navHome: "Inicio", navServices: "Te ofrecemos", navPricing: "Precios", navGallery: "Galería", navContact: "Contacto",
+                heroTitle: "Un espacio de trabajo en el centro de la ciudad", heroSubtitle: "Un ambiente de trabajo tranquilo en el barrio cultural de Barcelona. Espacios funcionales con todo lo que necesitas en la auténtica atmósfera de El Raval.", btnSeePricing: "Ver precios", btnBookTour: "Reservar visita",
+                offerTitle: "¡Oferta por tiempo limitado!", offerSubtitle: "Únete ahora y disfruta de nuestros precios especiales durante tus primeros 6 meses:", flexDeskPromo: "Escritorio flexible: 120€", flexDeskOriginal: "185€", fixedDeskPromo: "Escritorio fijo: 150€", fixedDeskOriginal: "220€", priceVatNote: "Todos los precios sin IVA",
+                servicesTitle: "Te ofrecemos", featureAcTitle: "Aire acondicionado", featureAcDesc: "Nuestro aire acondicionado es tan bueno que te hará olvidar que existe el verano.", featureTerraceTitle: "Terraza soleada", featureTerraceDesc: "Lleva tus gafas de sol al trabajo y únete a conversaciones como cuál es la mejor marca de protector solar...", featureCoffeeTitle: "Café recién molido y sabroso", featureCoffeeDesc: "Un buen café es un abrazo en una taza.", featureShowerTitle: "Ducha", featureShowerDesc: "Puedes venir sucio a la oficina. O hacer ejercicio durante el día.", featureAccessTitle: "Acceso fácil", featureAccessDesc: "Te configuraremos un código o llavero para entrar y salir cuando quieras.", featureWheelchairTitle: "Accesible en silla de ruedas", featureWheelchairDesc: "La planta baja no tiene escalones.",
+                pricingTitle: "Planes de membresía", daypassTitle: "Pase diario", flexdeskTitle: "Escritorio flexible", fixeddeskTitle: "Escritorio fijo", perDay: "/día", perMonth: "/mes", pricesVatNote: "Precios sin IVA",
+                daypassFeature1: "Acceso de 8AM a 8PM", daypassFeature2: "Escritorio compartido", daypassFeature3: "WiFi de alta velocidad", daypassFeature4: "Café y té",
+                flexdeskFeature1: "Acceso de 8AM a 8PM", flexdeskFeature2: "Escritorio compartido", flexdeskFeature3: "WiFi de alta velocidad", flexdeskFeature4: "Café y té",
+                fixeddeskFeature1: "Acceso 24/7", fixeddeskFeature2: "Escritorio dedicado", fixeddeskFeature3: "WiFi de alta velocidad", fixeddeskFeature4: "Café y té",
+                specialOffer: "¡Oferta Especial!", promoDuration: "Durante los primeros 6 meses", btnGetStarted: "Comenzar",
+                // NEW Translation Key
+                stripeAccessInfo: "Tras el pago, recibirás tu código de acceso a la oficina por WhatsApp en el número proporcionado durante la compra.",
                 galleryTitle: "Nuestro Espacio",
-                
-                // Contact section
-                contactTitle: "Ponte en Contacto",
-                whatsappTitle: "Contáctanos por WhatsApp",
-                whatsappButton: "Envíanos un mensaje",
-                addressLabel: "Dirección:",
-                addressText: "C/ de la Lluna, 11, 08001 Barcelona",
-                phoneLabel: "Teléfono:",
-                phoneText: "+34 622 47 55 91",
-                hoursLabel: "Horario:",
-                hoursText: "Abierto toda la semana, de 8:00 a 20:00",
-                socialTitle: "Síguenos",
-                
-                // Footer
+                contactTitle: "Ponte en Contacto", whatsappTitle: "Contáctanos por WhatsApp", whatsappButton: "Envíanos un mensaje", addressLabel: "Dirección:", addressText: "C/ de la Lluna, 11, 08001 Barcelona", phoneLabel: "Teléfono:", phoneText: "+34 622 47 55 91", hoursLabel: "Horario:", hoursText: "Abierto toda la semana, de 8:00 a 20:00", socialTitle: "Síguenos",
                 copyright: "© 2025 Coworking El Raval. Todos los derechos reservados."
             },
             ca: {
-                // Navigation
-                navHome: "Inici",
-                navServices: "T'oferim",
-                navPricing: "Preus",
-                navGallery: "Galeria",
-                navContact: "Contacte",
-                
-                // Hero section
-                heroTitle: "Un espai de treball al centre de la ciutat",
-                heroSubtitle: "Un ambient de treball tranquil al barri cultural de Barcelona. Espais funcionals amb tot el que necessites en l'autèntica atmosfera del Raval.",
-                btnSeePricing: "Veure preus",
-                btnBookTour: "Reservar visita",
-                
-                // Offer banner
-                offerTitle: "Oferta per temps limitat!",
-                offerSubtitle: "Uneix-te ara i gaudeix dels nostres preus especials durant els teus primers 6 mesos:",
-                flexDeskPromo: "Escriptori flexible: 120€",
-                flexDeskOriginal: "185€",
-                fixedDeskPromo: "Escriptori fix: 150€",
-                fixedDeskOriginal: "220€",
-                priceVatNote: "Tots els preus sense IVA",
-                
-                // Services section
-                servicesTitle: "T'oferim",
-                featureAcTitle: "Aire condicionat",
-                featureAcDesc: "El nostre aire condicionat és tan bo que et farà oblidar que existeix l'estiu.",
-                featureTerraceTitle: "Terrassa assolellada",
-                featureTerraceDesc: "Porta les teves ulleres de sol a la feina i uneix-te a converses com quina és la millor marca de protector solar...",
-                featureCoffeeTitle: "Cafè acabat de moldre i saborós",
-                featureCoffeeDesc: "Un bon cafè és una abraçada en una tassa.",
-                featureShowerTitle: "Dutxa",
-                featureShowerDesc: "Pots venir brut a l'oficina. O fer exercici durant el dia.",
-                featureAccessTitle: "Accés fàcil",
-                featureAccessDesc: "Et configurarem un codi o clauer per entrar i sortir quan vulguis.",
-                featureWheelchairTitle: "Accessible en cadira de rodes",
-                featureWheelchairDesc: "La planta baixa no té esglaons.",
-                
-                // Pricing section
-                pricingTitle: "Plans de subscripció",
-                daypassTitle: "Passi diari",
-                flexdeskTitle: "Escriptori flexible",
-                fixeddeskTitle: "Escriptori fix",
-                perDay: "/dia",
-                perMonth: "/mes",
-                pricesVatNote: "Preus sense IVA",
-                
-                // Pricing features
-                daypassFeature1: "Accés de 8AM a 8PM",
-                daypassFeature2: "Escriptori compartit",
-                daypassFeature3: "WiFi d'alta velocitat",
-                daypassFeature4: "Cafè i te",
-                
-                flexdeskFeature1: "Accés de 8AM a 8PM",
-                flexdeskFeature2: "Escriptori compartit",
-                flexdeskFeature3: "WiFi d'alta velocitat",
-                flexdeskFeature4: "Cafè i te",
-                
-                fixeddeskFeature1: "Accés 24/7",
-                fixeddeskFeature2: "Escriptori dedicat",
-                fixeddeskFeature3: "WiFi d'alta velocitat",
-                fixeddeskFeature4: "Cafè i te",
-                
-                specialOffer: "Oferta Especial!",
-                promoDuration: "Durant els primers 6 mesos",
-                btnGetStarted: "Començar",
-                
-                // Gallery section
+                navHome: "Inici", navServices: "T'oferim", navPricing: "Preus", navGallery: "Galeria", navContact: "Contacte",
+                heroTitle: "Un espai de treball al centre de la ciutat", heroSubtitle: "Un ambient de treball tranquil al barri cultural de Barcelona. Espais funcionals amb tot el que necessites en l'autèntica atmosfera del Raval.", btnSeePricing: "Veure preus", btnBookTour: "Reservar visita",
+                offerTitle: "Oferta per temps limitat!", offerSubtitle: "Uneix-te ara i gaudeix dels nostres preus especials durant els teus primers 6 mesos:", flexDeskPromo: "Escriptori flexible: 120€", flexDeskOriginal: "185€", fixedDeskPromo: "Escriptori fix: 150€", fixedDeskOriginal: "220€", priceVatNote: "Tots els preus sense IVA",
+                servicesTitle: "T'oferim", featureAcTitle: "Aire condicionat", featureAcDesc: "El nostre aire condicionat és tan bo que et farà oblidar que existeix l'estiu.", featureTerraceTitle: "Terrassa assolellada", featureTerraceDesc: "Porta les teves ulleres de sol a la feina i uneix-te a converses com quina és la millor marca de protector solar...", featureCoffeeTitle: "Cafè acabat de moldre i saborós", featureCoffeeDesc: "Un bon cafè és una abraçada en una tassa.", featureShowerTitle: "Dutxa", featureShowerDesc: "Pots venir brut a l'oficina. O fer exercici durant el dia.", featureAccessTitle: "Accés fàcil", featureAccessDesc: "Et configurarem un codi o clauer per entrar i sortir quan vulguis.", featureWheelchairTitle: "Accessible en cadira de rodes", featureWheelchairDesc: "La planta baixa no té esglaons.",
+                pricingTitle: "Plans de subscripció", daypassTitle: "Passi diari", flexdeskTitle: "Escriptori flexible", fixeddeskTitle: "Escriptori fix", perDay: "/dia", perMonth: "/mes", pricesVatNote: "Preus sense IVA",
+                daypassFeature1: "Accés de 8AM a 8PM", daypassFeature2: "Escriptori compartit", daypassFeature3: "WiFi d'alta velocitat", daypassFeature4: "Cafè i te",
+                flexdeskFeature1: "Accés de 8AM a 8PM", flexdeskFeature2: "Escriptori compartit", flexdeskFeature3: "WiFi d'alta velocitat", flexdeskFeature4: "Cafè i te",
+                fixeddeskFeature1: "Accés 24/7", fixeddeskFeature2: "Escriptori dedicat", fixeddeskFeature3: "WiFi d'alta velocitat", fixeddeskFeature4: "Cafè i te",
+                specialOffer: "Oferta Especial!", promoDuration: "Durant els primers 6 mesos", btnGetStarted: "Començar",
+                 // NEW Translation Key
+                stripeAccessInfo: "Després del pagament, rebràs el teu codi d'accés a l'oficina per WhatsApp al número proporcionat durant la compra.",
                 galleryTitle: "El Nostre Espai",
-                
-                // Contact section
-                contactTitle: "Posa't en Contacte",
-                whatsappTitle: "Contacta'ns per WhatsApp",
-                whatsappButton: "Envia'ns un missatge",
-                addressLabel: "Adreça:",
-                addressText: "C/ de la Lluna, 11, 08001 Barcelona",
-                phoneLabel: "Telèfon:",
-                phoneText: "+34 622 47 55 91",
-                hoursLabel: "Horari:",
-                hoursText: "Obert tota la setmana, de 8:00 a 20:00",
-                socialTitle: "Segueix-nos",
-                
-                // Footer
+                contactTitle: "Posa't en Contacte", whatsappTitle: "Contacta'ns per WhatsApp", whatsappButton: "Envia'ns un missatge", addressLabel: "Adreça:", addressText: "C/ de la Lluna, 11, 08001 Barcelona", phoneLabel: "Telèfon:", phoneText: "+34 622 47 55 91", hoursLabel: "Horari:", hoursText: "Obert tota la setmana, de 8:00 a 20:00", socialTitle: "Segueix-nos",
                 copyright: "© 2025 Coworking El Raval. Tots els drets reservats."
             }
         };
@@ -1875,9 +1190,10 @@
         // Update WhatsApp link text based on language
         function updateWhatsAppLink(lang) {
             const fixedDeskLink = document.querySelector('.fixed-desk-link');
-            if (fixedDeskLink) {
+            const fixedDeskContactLink = document.querySelector('.fixed-desk-contact'); 
+            
+            if (fixedDeskLink || fixedDeskContactLink) {
                 let messageText = "";
-                
                 if (lang === 'en') {
                     messageText = "Hi%2C%20I%27m%20interested%20in%20the%20Fixed%20Desk%20option%20%28%E2%82%AC150%2Fmonth%20for%20first%206%20months%29.%20I%20would%20like%20to%20get%20started.%20My%20name%20is%20";
                 } else if (lang === 'es') {
@@ -1885,117 +1201,42 @@
                 } else if (lang === 'ca') {
                     messageText = "Hola%2C%20estic%20interessat%20en%20l%27opci%C3%B3%20d%27Escriptori%20Fix%20%28150%E2%82%AC%2Fmes%20per%20als%20primers%206%20mesos%29.%20M%27agradaria%20comen%C3%A7ar.%20El%20meu%20nom%20%C3%A9s%20";
                 }
-                
-                fixedDeskLink.href = `https://wa.me/34622475591?text=${messageText}`;
+                const baseUrl = `https://wa.me/34622475591?text=${messageText}`;
+                if (fixedDeskLink) fixedDeskLink.href = baseUrl;
+                if (fixedDeskContactLink) fixedDeskContactLink.href = baseUrl;
             }
         }
         
         // Function to set the language
         function setLanguage(lang) {
-            // Get all elements with class names that match translation keys
             const currentLang = document.querySelector('.current-lang');
             currentLang.textContent = lang.toUpperCase();
             
-            // Update active language in selector
             document.querySelectorAll('.lang-option').forEach(option => {
-                if (option.dataset.lang === lang) {
-                    option.classList.add('active');
+                option.classList.toggle('active', option.dataset.lang === lang);
+            });
+            
+            localStorage.setItem('selectedLanguage', lang);
+            updateWhatsAppLink(lang);
+            
+            // Update all translatable elements using a loop
+            Object.keys(translations[lang]).forEach(key => {
+                // Convert camelCase key to kebab-case for CSS class matching
+                const kebabCaseKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+                const elements = document.querySelectorAll(`.${kebabCaseKey}`); 
+                
+                if (elements.length > 0) {
+                    elements.forEach(el => el.textContent = translations[lang][key]);
                 } else {
-                    option.classList.remove('active');
+                    // Optional: Warn if no elements found for a key
+                    // console.warn(`Translation key "${key}" (class ".${kebabCaseKey}") did not match any elements.`);
                 }
             });
             
-            // Store the selected language in localStorage
-            localStorage.setItem('selectedLanguage', lang);
-            
-            // Update WhatsApp link
-            updateWhatsAppLink(lang);
-            
-            // Update all translatable elements
-            document.querySelector('.nav-home').textContent = translations[lang].navHome;
-            document.querySelector('.nav-services').textContent = translations[lang].navServices;
-            document.querySelector('.nav-pricing').textContent = translations[lang].navPricing;
-            document.querySelector('.nav-gallery').textContent = translations[lang].navGallery;
-            document.querySelector('.nav-contact').textContent = translations[lang].navContact;
-            
-            document.querySelector('.hero-title').textContent = translations[lang].heroTitle;
-            document.querySelector('.hero-subtitle').textContent = translations[lang].heroSubtitle;
-            document.querySelector('.btn-see-pricing').textContent = translations[lang].btnSeePricing;
-            document.querySelector('.btn-book-tour').textContent = translations[lang].btnBookTour;
-            
-            document.querySelector('.offer-title').textContent = translations[lang].offerTitle;
-            document.querySelector('.offer-subtitle').textContent = translations[lang].offerSubtitle;
-            document.querySelector('.flex-desk-promo').textContent = translations[lang].flexDeskPromo;
-            document.querySelector('.flex-desk-original').textContent = translations[lang].flexDeskOriginal;
-            document.querySelector('.fixed-desk-promo').textContent = translations[lang].fixedDeskPromo;
-            document.querySelector('.fixed-desk-original').textContent = translations[lang].fixedDeskOriginal;
-            document.querySelector('.price-vat-note').textContent = translations[lang].priceVatNote;
-            
-            document.querySelector('.services-title').textContent = translations[lang].servicesTitle;
-            document.querySelector('.feature-ac-title').textContent = translations[lang].featureAcTitle;
-            document.querySelector('.feature-ac-desc').textContent = translations[lang].featureAcDesc;
-            document.querySelector('.feature-terrace-title').textContent = translations[lang].featureTerraceTitle;
-            document.querySelector('.feature-terrace-desc').textContent = translations[lang].featureTerraceDesc;
-            document.querySelector('.feature-coffee-title').textContent = translations[lang].featureCoffeeTitle;
-            document.querySelector('.feature-coffee-desc').textContent = translations[lang].featureCoffeeDesc;
-            document.querySelector('.feature-shower-title').textContent = translations[lang].featureShowerTitle;
-            document.querySelector('.feature-shower-desc').textContent = translations[lang].featureShowerDesc;
-            document.querySelector('.feature-access-title').textContent = translations[lang].featureAccessTitle;
-            document.querySelector('.feature-access-desc').textContent = translations[lang].featureAccessDesc;
-            document.querySelector('.feature-wheelchair-title').textContent = translations[lang].featureWheelchairTitle;
-            document.querySelector('.feature-wheelchair-desc').textContent = translations[lang].featureWheelchairDesc;
-            
-            document.querySelector('.pricing-title').textContent = translations[lang].pricingTitle;
-            document.querySelector('.daypass-title').textContent = translations[lang].daypassTitle;
-            document.querySelector('.flexdesk-title').textContent = translations[lang].flexdeskTitle;
-            document.querySelector('.fixeddesk-title').textContent = translations[lang].fixeddeskTitle;
+             // Handle specific cases NOT covered by class names (like price units)
             document.querySelector('.per-day').textContent = translations[lang].perDay;
-            document.querySelectorAll('.per-month').forEach(el => {
-                el.textContent = translations[lang].perMonth;
-            });
-            document.querySelectorAll('.prices-vat-note').forEach(el => {
-                el.textContent = translations[lang].pricesVatNote;
-            });
-            
-            document.querySelector('.daypass-feature1').textContent = translations[lang].daypassFeature1;
-            document.querySelector('.daypass-feature2').textContent = translations[lang].daypassFeature2;
-            document.querySelector('.daypass-feature3').textContent = translations[lang].daypassFeature3;
-            document.querySelector('.daypass-feature4').textContent = translations[lang].daypassFeature4;
-            
-            document.querySelector('.flexdesk-feature1').textContent = translations[lang].flexdeskFeature1;
-            document.querySelector('.flexdesk-feature2').textContent = translations[lang].flexdeskFeature2;
-            document.querySelector('.flexdesk-feature3').textContent = translations[lang].flexdeskFeature3;
-            document.querySelector('.flexdesk-feature4').textContent = translations[lang].flexdeskFeature4;
-            
-            document.querySelector('.fixeddesk-feature1').textContent = translations[lang].fixeddeskFeature1;
-            document.querySelector('.fixeddesk-feature2').textContent = translations[lang].fixeddeskFeature2;
-            document.querySelector('.fixeddesk-feature3').textContent = translations[lang].fixeddeskFeature3;
-            document.querySelector('.fixeddesk-feature4').textContent = translations[lang].fixeddeskFeature4;
-            
-            document.querySelectorAll('.special-offer').forEach(el => {
-                el.textContent = translations[lang].specialOffer;
-            });
-            document.querySelectorAll('.promo-duration').forEach(el => {
-                el.textContent = translations[lang].promoDuration;
-            });
-            document.querySelectorAll('.btn-get-started').forEach(el => {
-                el.textContent = translations[lang].btnGetStarted;
-            });
-            
-            document.querySelector('.gallery-title').textContent = translations[lang].galleryTitle;
-            
-            document.querySelector('.contact-title').textContent = translations[lang].contactTitle;
-            document.querySelector('.whatsapp-title').textContent = translations[lang].whatsappTitle;
-            document.querySelector('.whatsapp-button').textContent = translations[lang].whatsappButton;
-            document.querySelector('.address-label').textContent = translations[lang].addressLabel;
-            document.querySelector('.address-text').textContent = translations[lang].addressText;
-            document.querySelector('.phone-label').textContent = translations[lang].phoneLabel;
-            document.querySelector('.phone-text').textContent = translations[lang].phoneText;
-            document.querySelector('.hours-label').textContent = translations[lang].hoursLabel;
-            document.querySelector('.hours-text').textContent = translations[lang].hoursText;
-            document.querySelector('.social-title').textContent = translations[lang].socialTitle;
-            
-            document.querySelector('.copyright').textContent = translations[lang].copyright;
+            document.querySelectorAll('.per-month').forEach(el => el.textContent = translations[lang].perMonth);
+            // The loop handles elements with classes like .prices-vat-note, .promo-duration, .special-offer now
         }
         
         // Mobile Navigation
@@ -2004,34 +1245,47 @@
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); 
+        });
+        
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
         });
         
         // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 100);
         });
+
+        // Function to close offer banner
+        function closeOfferBanner() {
+            const offerBanner = document.getElementById('offer-banner');
+            if (offerBanner) {
+                offerBanner.style.opacity = '0';
+                setTimeout(() => {
+                    offerBanner.style.display = 'none';
+                }, 500); // Match CSS transition duration
+            }
+        }
         
-        // Show banner when scrolling to pricing section
+        // DOMContentLoaded ensures HTML is parsed before JS runs
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize language
             const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
             setLanguage(savedLanguage);
             
-            // Language selector
+            // Language selector setup
             const langSelector = document.querySelector('.lang-selector-btn');
             const langOptions = document.querySelector('.lang-options');
             
-            // Toggle language options on click
             langSelector.addEventListener('click', () => {
                 langOptions.classList.toggle('active');
             });
             
-            // Language option selection
             document.querySelectorAll('.lang-option').forEach(option => {
                 option.addEventListener('click', () => {
                     const lang = option.dataset.lang;
@@ -2040,298 +1294,141 @@
                 });
             });
             
-            // Close language options when clicking elsewhere
             document.addEventListener('click', (event) => {
                 if (!event.target.closest('.lang-selector')) {
                     langOptions.classList.remove('active');
                 }
             });
             
-            // Show offer banner
+            // Show offer banner logic
             let bannerShown = false;
             const offerBanner = document.getElementById('offer-banner');
-            const pricingGrid = document.querySelector('.pricing-grid');
+            const pricingGrid = document.querySelector('.pricing-grid'); 
             
             function showBannerOnScroll() {
-                if (!bannerShown && pricingGrid) {
-                    const pricingGridPosition = pricingGrid.getBoundingClientRect();
-                    
-                    // Check if pricing cards are in view (not just the title)
-                    if (pricingGridPosition.top < window.innerHeight * 0.8 && pricingGridPosition.bottom > 0) {
-                        offerBanner.style.display = 'block';
-                        
-                        // Small delay before starting the fade-in
-                        setTimeout(function() {
-                            offerBanner.style.opacity = '1';
-                        }, 50);
-                        
-                        bannerShown = true;
-                        // Remove the scroll listener once banner is shown
-                        window.removeEventListener('scroll', showBannerOnScroll);
-                    }
+                if (bannerShown || !offerBanner || !pricingGrid) {
+                    window.removeEventListener('scroll', showBannerOnScroll);
+                    return;
+                }
+                const pricingGridPosition = pricingGrid.getBoundingClientRect();
+                if (pricingGridPosition.top < window.innerHeight * 0.8 && pricingGridPosition.bottom > 0) {
+                    offerBanner.style.display = 'block';
+                    setTimeout(() => { offerBanner.style.opacity = '1'; }, 50); 
+                    bannerShown = true;
+                    window.removeEventListener('scroll', showBannerOnScroll); 
                 }
             }
-            
-            // Add scroll event listener
             window.addEventListener('scroll', showBannerOnScroll);
-        });
-        
-        // Testimonial Slider
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const slidesContainer = document.querySelector('.testimonial-slides');
-        let testimonialTimer = null;
-        
-        function showSlide(index) {
-            // Always ensure valid index
-            if (index >= slides.length) {
-                slideIndex = 0;
-            } else if (index < 0) {
-                slideIndex = slides.length - 1;
-            } else {
-                slideIndex = index;
+
+            const closeBtn = offerBanner?.querySelector('.close-offer-banner'); // Use optional chaining
+            if (closeBtn) {
+                 closeBtn.addEventListener('click', (event) => {
+                    event.stopPropagation(); 
+                    // closeOfferBanner() is called by onclick attribute
+                 });
             }
-            
-            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
         
-        function nextSlide() {
-            showSlide(slideIndex + 1);
-        }
-        
-        function prevSlide() {
-            // For prev button, we'll actually loop around to the last slide when at the beginning
-            // This creates consistent right-to-left movement
-            if (slideIndex === 0) {
-                showSlide(slides.length - 1);
-            } else {
-                showSlide(slideIndex - 1);
-            }
-            
-            // Completely stop and restart the timer when manually navigating
-            stopAutoScroll();
-            // Start a new timer after 8 seconds
-            setTimeout(startAutoScroll, 8000);
-        }
-        
-        function startAutoScroll() {
-            // Only start if no timer is currently running
-            if (testimonialTimer === null) {
-                testimonialTimer = setInterval(nextSlide, 5000);
-            }
-        }
-        
-        function stopAutoScroll() {
-            // Clear the interval and reset the timer variable
-            if (testimonialTimer !== null) {
-                clearInterval(testimonialTimer);
-                testimonialTimer = null;
-            }
-        }
-        
-        // Smooth Scrolling for Internal Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            // Smooth Scrolling for Internal Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return; 
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                        
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            hamburger.classList.remove('active');
+                        }
                     }
-                }
-            });
-        });
-        
-        // Form Submission (Placeholder)
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            });
-        }
-        
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for subscribing to our newsletter!');
-                this.reset();
-            });
-        }
-        
-        // IMPROVED LIGHTBOX FUNCTIONALITY
-        // Gallery images for lightbox
-        const galleryImages = [
-            'images/work-area_15.jpg',
-            'images/work-area_27.jpg',
-            'images/work-area_16.jpg',
-            'images/work-area_9.jpg',
-            'images/work-area_31.jpg',
-            'images/work-area_32.jpg',
-            'images/work-area_33.jpg',
-            'images/work-area_34.jpg'
-        ];
-
-        let currentImageIndex = 0;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        // Improved lightbox functionality
-        function openLightbox(index) {
-            // Set current index and image source
-            currentImageIndex = index;
-            lightboxImg.src = galleryImages[currentImageIndex];
-            
-            // Display lightbox with fade-in effect
-            lightbox.style.display = 'block';
-            setTimeout(() => {
-                lightbox.style.opacity = '1';
-            }, 10);
-            
-            // Prevent scrolling when lightbox is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            // Fade-out effect
-            lightbox.style.opacity = '0';
-            
-            // After transition completes, hide completely
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-                // Re-enable scrolling
-                document.body.style.overflow = 'auto';
-            }, 300); // Match this with CSS transition duration
-        }
-
-        function changeImage(direction) {
-            // Update index with wrapping
-            currentImageIndex += direction;
-            
-            // Wrap around if at the end or beginning
-            if (currentImageIndex >= galleryImages.length) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex < 0) {
-                currentImageIndex = galleryImages.length - 1;
-            }
-            
-            // Update the image source
-            lightboxImg.src = galleryImages[currentImageIndex];
-        }
-
-        // Wait for DOM to be fully loaded before setting up lightbox
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set up each gallery item click handler
-            const galleryItems = document.querySelectorAll('.gallery-item img');
-            galleryItems.forEach((item, index) => {
-                item.addEventListener('click', function() {
-                    openLightbox(index);
                 });
             });
-            
-            // Set up lightbox control event listeners
-            const closeArea = document.querySelector('.close-area');
-            if (closeArea) {
+        
+            // IMPROVED LIGHTBOX FUNCTIONALITY
+            const galleryImages = [
+                'images/work-area_15.jpg', 'images/work-area_27.jpg', 'images/work-area_16.jpg',
+                'images/work-area_9.jpg', 'images/work-area_31.jpg', 'images/work-area_32.jpg',
+                'images/work-area_33.jpg', 'images/work-area_34.jpg'
+            ];
+
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeArea = lightbox?.querySelector('.close-area'); // Optional chaining
+            const prevArea = lightbox?.querySelector('.prev-area');
+            const nextArea = lightbox?.querySelector('.next-area');
+
+            function openLightbox(index) {
+                if (!lightbox || !lightboxImg) return; // Safety check
+                currentImageIndex = index;
+                lightboxImg.src = galleryImages[currentImageIndex];
+                lightbox.style.display = 'block';
+                setTimeout(() => { lightbox.style.opacity = '1'; }, 10);
+                document.body.style.overflow = 'hidden'; 
+            }
+
+            function closeLightbox() {
+                 if (!lightbox) return; // Safety check
+                lightbox.style.opacity = '0';
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto'; 
+                }, 300); 
+            }
+
+            function changeImage(direction) {
+                 if (!lightboxImg) return; // Safety check
+                currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length; 
+                lightboxImg.src = galleryImages[currentImageIndex];
+            }
+
+            // Attach listeners only if lightbox elements exist
+            if (lightbox && lightboxImg && closeArea && prevArea && nextArea) {
+                const galleryItems = document.querySelectorAll('.gallery-item img');
+                galleryItems.forEach((item, index) => {
+                    item.addEventListener('click', () => openLightbox(index));
+                });
+
                 closeArea.addEventListener('click', closeLightbox);
-            }
-            
-            const prevArea = document.querySelector('.prev-area');
-            if (prevArea) {
-                prevArea.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent lightbox from closing
-                    changeImage(-1);
-                });
-            }
-            
-            const nextArea = document.querySelector('.next-area');
-            if (nextArea) {
-                nextArea.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent lightbox from closing
-                    changeImage(1);
-                });
-            }
-            
-            // Make clicking on the lightbox background close it
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            
-            // Prevent click on the image from closing the lightbox
-            lightboxImg.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (lightbox.style.display === 'block') {
-                    if (e.key === 'Escape') {
-                        closeLightbox();
-                    } else if (e.key === 'ArrowRight') {
-                        changeImage(1);
-                    } else if (e.key === 'ArrowLeft') {
-                        changeImage(-1);
-                    }
-                }
-            });
-            
-            // Make pricing cards clickable
-            const pricingCards = document.querySelectorAll('.pricing-card');
-            
-            pricingCards.forEach(card => {
-                // Find the "Get Started" link in each card
-                const getStartedLink = card.querySelector('.pricing-footer .btn');
+                prevArea.addEventListener('click', (e) => { e.stopPropagation(); changeImage(-1); });
+                nextArea.addEventListener('click', (e) => { e.stopPropagation(); changeImage(1); });
                 
+                lightbox.addEventListener('click', (e) => { 
+                    if (e.target === lightbox) closeLightbox();
+                });
+                lightboxImg.addEventListener('click', (e) => e.stopPropagation()); 
+
+                document.addEventListener('keydown', (e) => { 
+                    if (lightbox.style.display === 'block') {
+                        if (e.key === 'Escape') closeLightbox();
+                        else if (e.key === 'ArrowRight') changeImage(1);
+                        else if (e.key === 'ArrowLeft') changeImage(-1);
+                    }
+                });
+            }
+
+            // Make pricing cards clickable (enhancement)
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach(card => {
+                const getStartedLink = card.querySelector('.pricing-footer .btn');
                 if (getStartedLink) {
                     const targetUrl = getStartedLink.getAttribute('href');
-                    
-                    // Make the entire card clickable, except for the existing button
-                    card.style.cursor = 'pointer';
+                    card.style.cursor = 'pointer'; 
                     
                     card.addEventListener('click', function(e) {
-                        // Only redirect if the click wasn't on the button itself or its parent (pricing-footer)
-                        if (!e.target.closest('.pricing-footer')) {
+                        if (!e.target.closest('.pricing-footer')) { // Redirect if not clicking the footer itself
                             window.open(targetUrl, '_blank', 'noopener,noreferrer');
                         }
                     });
-                    
-                    // Add hover effect to indicate clickability
-                    card.addEventListener('mouseenter', function() {
-                        if (!card.classList.contains('popular')) {
-                            card.style.transform = 'translateY(-10px)';
-                        } else {
-                            card.style.transform = 'scale(1.05) translateY(-10px)';
-                        }
-                        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        if (!card.classList.contains('popular')) {
-                            card.style.transform = '';
-                        } else {
-                            card.style.transform = 'scale(1.05)';
-                        }
-                        card.style.boxShadow = '';
-                    });
                 }
             });
-        });
+        }); // End DOMContentLoaded
     </script>
 </body>
 </html>
