@@ -1,22 +1,23 @@
 {
-  "name": "coworking-la-platja",
+  "name": "coworking-el-raval",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages -d dist"
+    "//": "The deploy script is no longer needed with GitHub Actions",
+    "// deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kevhaes/coworking_El_Raval.git"
+    "url": "git+https://github.com/macanmhaoir/coworking-el-raval.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kevhaes/coworking_El_Raval/issues"
+    "url": "https://github.com/macanmhaoir/coworking-el-raval/issues"
   },
-  "homepage": "https://coworking-la-platja.com",
+  "homepage": "https://macanmhaoir.github.io/coworking-el-raval",
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
