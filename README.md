@@ -1,4 +1,10 @@
 # coworking-el-raval
 
-To push the dist directory to the gh-pages branch (which is used for deployment) use:
-git subtree push --prefix dist origin gh-pages
+rm -rf dist
+mkdir dist
+cp index.html dist/
+cp -r images/ dist/
+
+git add .
+git commit -m "Updated website with new changes"
+git push origin master
